@@ -1,0 +1,30 @@
+﻿@page
+@model E_Warehouse.Pages.EditWarehouseModel
+@{
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">Edit Warehouse</h5>
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="warehouseName" class="form-label">Warehouse Name</label>
+                        <input type="text" class="form-control" id="warehouseName" placeholder="Enter warehouse name" value="Main Warehouse">
+                    </div>
+                    <div class="mb-3">
+                        <label for="warehouseLocation" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="warehouseLocation" placeholder="Enter location" value="New York, USA">
+                    </div>
+                    <div class="mb-3">
+                        <label for="warehouseDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="warehouseDescription" rows="3" placeholder="Enter description">Main storage facility</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="@Url.Page("/Warehouse")" class="btn btn-secondary">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+

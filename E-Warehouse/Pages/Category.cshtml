@@ -1,0 +1,202 @@
+﻿@page
+@model E_Warehouse.Pages.CategoryModel
+@{
+} 
+
+<div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-4">Categories Management</h5>
+               
+              <div class="widget-content searchable-container list">
+                <div class="card card-body">
+                  <div class="row">
+                    <div class="col-md-4 col-xl-3">
+                      <form class="position-relative">
+                        <input type="text" class="form-control product-search ps-5" id="input-search" placeholder="Search Categories..." />
+                        <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y fs-6 text-dark ms-3"></i>
+                      </form>
+                    </div>
+                    <div class="col-md-8 col-xl-9 text-end d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
+                      <a href="@Url.Page("/AddCategory")"  class="btn btn-primary d-flex align-items-center">
+                        <i class="ti ti-plus text-white me-1 fs-5"></i> Add Category
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card card-body">
+                  <div class="table-responsive">
+                    <table class="table search-table align-middle text-nowrap">
+                      <thead class="header-item">
+                        <th>Category ID</th>
+                        <th>Category Name</th>
+                        <th>Description</th>
+                        <th>Items Count</th>
+                        <th>Status</th>
+                        <th>Created Date</th>
+                        <th>Action</th>
+                      </thead>
+                      <tbody>
+                        <tr class="search-items">
+                          <td>
+                            <span class="usr-category-id">C001</span>
+                          </td>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <div class="ms-2">
+                                <div class="user-meta-info">
+                                  <h6 class="user-name mb-0" data-name="Electronics">Electronics</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <span class="usr-category-desc">Electronic items and devices</span>
+                          </td>
+                          <td>
+                            <span class="usr-items-count">25</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-success-subtle text-success">Active</span>
+                          </td>
+                          <td>
+                            <span class="usr-created-date">2024-01-15</span>
+                          </td>
+                          <td>
+                            <div class="action-btn">
+                              <a href="@Url.Page("/EditCategory")" class="text-primary edit">
+                                <i class="ti ti-edit fs-5"></i>
+                              </a>
+                              <a href="javascript:void(0)" class="text-dark delete ms-2" data-category-id="C001" data-category-name="Electronics">
+                                <i class="ti ti-trash fs-5"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="search-items">
+                          <td>
+                            <span class="usr-category-id">C002</span>
+                          </td>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <div class="ms-2">
+                                <div class="user-meta-info">
+                                  <h6 class="user-name mb-0" data-name="Furniture">Furniture</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <span class="usr-category-desc">Furniture and home decor</span>
+                          </td>
+                          <td>
+                            <span class="usr-items-count">18</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-success-subtle text-success">Active</span>
+                          </td>
+                          <td>
+                            <span class="usr-created-date">2024-01-20</span>
+                          </td>
+                          <td>
+                            <div class="action-btn">
+                              <a href="@Url.Page("/EditCategory")" class="text-primary edit">
+                                <i class="ti ti-edit fs-5"></i>
+                              </a>
+                              <a href="javascript:void(0)" class="text-dark delete ms-2" data-category-id="C002" data-category-name="Furniture">
+                                <i class="ti ti-trash fs-5"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="search-items">
+                          <td>
+                            <span class="usr-category-id">C003</span>
+                          </td>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <div class="ms-2">
+                                <div class="user-meta-info">
+                                  <h6 class="user-name mb-0" data-name="Tools">Tools</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <span class="usr-category-desc">Tools and equipment</span>
+                          </td>
+                          <td>
+                            <span class="usr-items-count">12</span>
+                          </td>
+                          <td>
+                            <span class="badge bg-success-subtle text-success">Active</span>
+                          </td>
+                          <td>
+                            <span class="usr-created-date">2024-02-01</span>
+                          </td>
+                          <td>
+                            <div class="action-btn">
+                              <a href="@Url.Page("/EditCategory")" class="text-primary edit">
+                                <i class="ti ti-edit fs-5"></i>
+                              </a>
+                              <a href="javascript:void(0)" class="text-dark delete ms-2" data-category-id="C003" data-category-name="Tools">
+                                <i class="ti ti-trash fs-5"></i>
+                              </a>
+                            </div>
+                          </td>
+                        </tr> 
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                  <!-- Pagination -->
+                  <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-3">
+                    <div class="d-flex align-items-center gap-2">
+                      <span class="text-muted">Show:</span>
+                      <select class="form-select form-select-sm" id="itemsPerPage" style="width: auto;">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                      </select>
+                      <span class="text-muted">entries</span>
+                    </div>
+                    <div>
+                      <span class="text-muted">Showing <span id="showingFrom">1</span> to <span id="showingTo">10</span> of <span id="totalItems">0</span> entries</span>
+                    </div>
+                    <nav>
+                      <ul class="pagination mb-0" id="pagination">
+                        <!-- Pagination -->
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+@section Scripts {
+<script src="~/js/table-pagination.js"></script>
+   
+  <script>
+    $(document).ready(function() { 
+      var pagination = initTablePagination();
+      
+      // Category-specific delete handler
+      $('.delete').on('click', function(e) {
+        e.preventDefault();
+        var categoryId = $(this).data('category-id');
+        var categoryName = $(this).data('category-name');
+        var $row = $(this).closest('tr');
+         
+        if (confirm('Are you sure you want to delete ' + categoryName + ' (' + categoryId + ')?')) {
+          $row.fadeOut(300, function() {
+            $(this).remove();
+            pagination.refresh();  
+          });
+        }
+      });
+    });
+  </script>
+}
+

@@ -1,0 +1,25 @@
+﻿@page
+@model E_Warehouse.Pages.EditCategoryModel
+@{
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">Edit Category</h5>
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label">Category Name</label>
+                        <input type="text" class="form-control" id="categoryName" placeholder="Enter category name" value="Electronics">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="categoryDescription" rows="3" placeholder="Enter description">Electronic items and devices</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="@Url.Page("/Categories")" class="btn btn-secondary">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>

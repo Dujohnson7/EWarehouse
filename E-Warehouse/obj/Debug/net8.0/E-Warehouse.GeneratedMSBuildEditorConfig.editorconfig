@@ -1,0 +1,149 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = E_Warehouse
+build_property.RootNamespace = E_Warehouse
+build_property.ProjectDir = E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/AddCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/AddExport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkRXhwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/AddImport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkSW1wb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/AddItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkSXRlbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/AddUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/AddWarehouse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkV2FyZWhvdXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/AddZone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkWm9uZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Category.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/EditCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/EditExport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEV4cG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/EditImport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEltcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/EditItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdEl0ZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/EditWarehouse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFdhcmVob3VzZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/EditZone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFpvbmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Export.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Import.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW1wb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Items.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXRlbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Stock.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU3RvY2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Warehouse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2FyZWhvdXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Zone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcWm9uZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AUCA/Sem 7/Dot net/final Project/E-Warehouse/E-Warehouse/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-t49vsku90l

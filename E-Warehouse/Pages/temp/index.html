@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-WAREHOUSE</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logo.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body> 
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+  
+    <aside class="left-sidebar"> 
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./index.html" class="text-nowrap logo-img">
+            <img src="../assets/images/logo.png" style="width: 150px;" alt="" />
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div> 
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                <iconify-icon icon="solar:atom-line-duotone"></iconify-icon>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li> 
+
+            <li>
+              <span class="sidebar-divider lg"></span>
+            </li>
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
+              <span class="hide-menu">UI</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./zone.html" aria-expanded="false">
+                <iconify-icon icon="solar:file-text-line-duotone"></iconify-icon>
+                <span class="hide-menu">Zone</span>
+              </a>
+            </li>  
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./items.html" aria-expanded="false">
+                <iconify-icon icon="solar:danger-circle-line-duotone"></iconify-icon>
+                <span class="hide-menu">Items</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./users.html" aria-expanded="false">
+                <iconify-icon icon="solar:layers-minimalistic-bold-duotone"></iconify-icon>
+                <span class="hide-menu">Users</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./categories.html" aria-expanded="false">
+                <iconify-icon icon="solar:danger-circle-line-duotone"></iconify-icon>
+                <span class="hide-menu">Categories</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./warehouse.html" aria-expanded="false">
+                <iconify-icon icon="solar:bookmark-square-minimalistic-line-duotone"></iconify-icon>
+                <span class="hide-menu">Warehouse</span>
+              </a>
+            </li>
+
+            <li>
+              <span class="sidebar-divider lg"></span>
+            </li>
+
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4"></iconify-icon>
+              <span class="hide-menu">Inventory</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link justify-content-between has-arrow" href="javascript:void(0)" aria-expanded="false">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="d-flex">
+                    <iconify-icon icon="solar:cart-3-line-duotone"></iconify-icon>
+                  </span>
+                  <span class="hide-menu">Stock</span>
+                </div>
+                
+              </a>
+              <ul aria-expanded="false" class="collapse first-level">  
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="./stock.html">
+                      <span class="hide-menu">Stock Status</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                    href="./import.html">
+                      <span class="hide-menu">Import</span>
+                  </a>
+                </li> 
+                <li class="sidebar-item">
+                  <a class="sidebar-link justify-content-between"
+                        href="export.html">
+                      <span class="hide-menu">Export</span>
+                    </a>
+                </li> 
+              </ul>
+            </li>  
+ 
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./reports.html" aria-expanded="false">
+                <iconify-icon icon="solar:file-text-line-duotone"></iconify-icon>
+                <span class="hide-menu">Reports</span>
+              </a>
+            </li>   
+          </ul> 
+        </nav> 
+      </div> 
+    </aside>
+
+    <!--  Sidebar End -->
+
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler " id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link " href="javascript:void(0)" id="drop1" data-bs-toggle="dropdown" aria-expanded="false">
+                <iconify-icon icon="solar:bell-linear" class="fs-6"></iconify-icon>
+                <div class="notification bg-primary rounded-circle"></div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-animate-up" aria-labelledby="drop1">
+                <div class="message-body">
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    Add new zone
+                  </a>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    Add new item
+                  </a>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    Add new user
+                  </a>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    Add new category
+                  </a>
+                  <a href="javascript:void(0)" class="dropdown-item">
+                    Add new warehouse
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end"> 
+              <li class="nav-item dropdown">
+                <a class="nav-link " href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="profile.html" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-user fs-6"></i>
+                      <p class="mb-0 fs-3">My Profile</p>
+                    </a> 
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--  Header End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="body-wrapper-inner">
+        <div class="container-fluid">
+          <!--  Row 1 -->
+          <div class="row">
+            <div class="col-lg-8 d-flex align-items-strech">
+              <div class="card w-100">
+                <div class="card-body">
+                  <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                    <div class="mb-3 mb-sm-0">
+                      <h5 class="card-title fw-semibold">Stock Movement</h5>
+                    </div>
+                    <div>
+                      <select class="form-select">
+                        <option value="1">March 2025</option>
+                        <option value="2">April 2025</option>
+                        <option value="3">May 2025</option>
+                        <option value="4">June 2025</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div id="sales-profit"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="card bg-danger-subtle shadow-none w-100">
+                    <div class="card-body">
+                      <div class="d-flex mb-10 pb-1 justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-6">
+                          <div
+                            class="rounded-circle-shape bg-danger px-3 py-2 rounded-pill d-inline-flex align-items-center justify-content-center">
+                            <iconify-icon icon="solar:users-group-rounded-bold-duotone"
+                              class="fs-7 text-white"></iconify-icon>
+                          </div>
+                          <h6 class="mb-0 fs-4 fw-medium text-muted">
+                            Total Products
+                          </h6>
+                        </div>
+                        <div class="dropdown dropstart">
+                          <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="ti ti-dots-vertical fs-6"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="./items.html"><i
+                                  class="fs-4 ti ti-plus"></i>Add Item</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="./stock.html"><i
+                                  class="fs-4 ti ti-eye"></i>View Stock</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="row align-items-end justify-content-between">
+                        <div class="col-5">
+                          <h2 class="mb-6 fs-8">1,250</h2>
+                          <span class="badge rounded-pill border border-muted fw-bold text-muted fs-2 py-1">+15% last
+                            month</span>
+                        </div>
+                        <div class="col-5">
+                          <div id="total-followers" class="rounded-bars"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="card bg-secondary-subtle shadow-none w-100">
+                    <div class="card-body">
+                      <div class="d-flex mb-10 pb-1 justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-6">
+                          <div
+                            class="rounded-circle-shape bg-secondary px-3 py-2 rounded-pill d-inline-flex align-items-center justify-content-center">
+                            <iconify-icon icon="solar:wallet-2-line-duotone" class="fs-7 text-white"></iconify-icon>
+                          </div>
+                          <h6 class="mb-0 fs-4 fw-medium text-muted">
+                            Total Stock Value
+                          </h6>
+                        </div>
+                        <div class="dropdown dropstart">
+                          <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="ti ti-dots-vertical fs-6"></i>
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="./reports.html"><i
+                                  class="fs-4 ti ti-file"></i>View Reports</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center gap-3" href="./stock.html"><i
+                                  class="fs-4 ti ti-chart"></i>Stock Analysis</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="row align-items-center justify-content-between pt-4">
+                        <div class="col-5">
+                          <h2 class="mb-6 fs-8 text-nowrap">$125,680</h2>
+                          <span class="badge rounded-pill border border-muted fw-bold text-muted fs-2 py-1">+12% last
+                            month</span>
+                        </div>
+                        <div class="col-5">
+                          <div id="total-income"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8 d-flex align-items-stretch">
+              <div class="card w-100 overflow-hidden">
+                <div class="card-body pb-0">
+                  <h4 class="fs-4 mb-1 card-title">Stock Overview</h4>
+                  <p class="mb-0 card-subtitle">Recent Stock Activities</p>
+                </div>
+                <div data-simplebar class="position-relative">
+                  <div class="table-responsive products-tabel" data-simplebar>
+                    <table class="table text-nowrap mb-0 align-middle table-hover">
+                      <thead class="fs-4">
+                        <tr>
+                          <th class="fs-3 px-4">Products</th>
+                          <th class="fs-3">Quantity</th>
+                          <th class="fs-3">Stock Status</th>
+                          <th class="fs-3"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center product">
+                              <div class="bg-primary-subtle rounded p-2 me-2">
+                                <iconify-icon icon="solar:box-line-duotone" class="fs-4 text-primary"></iconify-icon>
+                              </div>
+                              <div class="ms-3 product-title">
+                                <h6 class="fs-3 mb-0 text-truncate-2">
+                                  Product A - Electronics
+                                </h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <h5 class="mb-0 fs-4">
+                              150 <span class="text-muted">units</span>
+                            </h5>
+                            <p class="text-muted mb-2">Main Warehouse</p>
+                            <div class="progress bg-light w-100" style="height: 4px">
+                              <div class="progress-bar bg-success" role="progressbar" aria-label="Example 4px high"
+                                style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            <span
+                              class="badge rounded-pill fs-2 fw-medium bg-success-subtle text-success">In Stock</span>
+                          </td>
+                          <td>
+                            <div class="dropdown dropstart">
+                              <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="ti ti-dots-vertical fs-6"></i>
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-plus"></i>Add</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-edit"></i>Edit</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-trash"></i>Delete</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center product">
+                              <div class="bg-info-subtle rounded p-2 me-2">
+                                <iconify-icon icon="solar:box-line-duotone" class="fs-4 text-info"></iconify-icon>
+                              </div>
+                              <div class="ms-3 product-title">
+                                <h6 class="fs-3 mb-0 text-truncate-2">
+                                  Product B - Clothing
+                                </h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <h5 class="mb-0 fs-4">
+                              85 <span class="text-muted">units</span>
+                            </h5>
+                            <p class="text-muted mb-2">Secondary Warehouse</p>
+                            <div class="progress bg-light w-100" style="height: 4px">
+                              <div class="progress-bar bg-success" role="progressbar" aria-label="Example 4px high"
+                                style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            <span
+                              class="badge rounded-pill fs-2 fw-medium bg-success-subtle text-success">In Stock</span>
+                          </td>
+                          <td>
+                            <div class="dropdown dropstart">
+                              <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="ti ti-dots-vertical fs-6"></i>
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-plus"></i>Add</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-edit"></i>Edit</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-trash"></i>Delete</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center product">
+                              <div class="bg-warning-subtle rounded p-2 me-2">
+                                <iconify-icon icon="solar:box-line-duotone" class="fs-4 text-warning"></iconify-icon>
+                              </div>
+                              <div class="ms-3 product-title">
+                                <h6 class="fs-3 mb-0 text-truncate-2">
+                                  Product C - Food & Beverages
+                                </h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <h5 class="mb-0 fs-4">
+                              15 <span class="text-muted">units</span>
+                            </h5>
+                            <p class="text-muted mb-2">Main Warehouse</p>
+                            <div class="progress bg-light w-100" style="height: 4px">
+                              <div class="progress-bar bg-warning" role="progressbar" aria-label="Example 4px high"
+                                style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            <span
+                              class="badge rounded-pill fs-2 fw-medium bg-warning-subtle text-warning">Low Stock</span>
+                          </td>
+                          <td>
+                            <div class="dropdown dropstart">
+                              <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="ti ti-dots-vertical fs-6"></i>
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-plus"></i>Add</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-edit"></i>Edit</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-trash"></i>Delete</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center product">
+                              <div class="bg-danger-subtle rounded p-2 me-2">
+                                <iconify-icon icon="solar:box-line-duotone" class="fs-4 text-danger"></iconify-icon>
+                              </div>
+                              <div class="ms-3 product-title">
+                                <h6 class="fs-3 mb-0 text-truncate-2">
+                                  Product E - Home & Garden
+                                </h6>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <h5 class="mb-0 fs-4">
+                              0 <span class="text-muted">units</span>
+                            </h5>
+                            <p class="text-muted mb-2">Main Warehouse</p>
+                            <div class="progress bg-light w-100" style="height: 4px">
+                              <div class="progress-bar bg-danger" role="progressbar" aria-label="Example 4px high"
+                                style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                          <td>
+                            <span
+                              class="badge rounded-pill fs-2 fw-medium bg-danger-subtle text-danger">Out of Stock</span>
+                          </td>
+                          <td>
+                            <div class="dropdown dropstart">
+                              <a href="javascript:void(0)" class="text-muted" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="ti ti-dots-vertical fs-6"></i>
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-plus"></i>Add</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-edit"></i>Edit</a>
+                                </li>
+                                <li>
+                                  <a class="dropdown-item d-flex align-items-center gap-3" href="javascript:void(0)"><i
+                                      class="fs-4 ti ti-trash"></i>Delete</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex align-items-stretch">
+              <div class="card w-100">
+                <div class="card-body">
+                  <div class="d-flex mb-3 justify-content-between align-items-center">
+                    <h4 class="mb-0 card-title">Warehouse Statistics</h4>
+                    <div class="dropdown">
+                      <button id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"
+                        class="rounded-circle btn-transparent rounded-circle btn-sm px-1 btn shadow-none">
+                        <i class="ti ti-dots-vertical fs-6"></i>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                        <li>
+                          <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <ul class="list-unstyled mb-0">
+                    <li class="d-flex align-items-center justify-content-between py-10 border-bottom">
+                      <div class="d-flex align-items-center">
+                        <div
+                          class="rounded-circle-shape bg-primary-subtle me-3 rounded-pill d-inline-flex align-items-center justify-content-center">
+                          <iconify-icon icon="solar:card-line-duotone" class="fs-7 text-primary"></iconify-icon>
+                        </div>
+                        <div>
+                          <h6 class="mb-1 fs-3">Total Imports</h6>
+                          <p class="mb-0 fs-2 d-flex align-items-center gap-1">
+                            This month<i class="ti ti-info-circle"></i></i>
+                          </p>
+                        </div>
+                      </div>
+                      <span
+                        class="badge rounded-pill fw-medium fs-2 d-flex align-items-center bg-success-subtle text-success text-end"><i
+                          class="ti ti-caret-up"></i>245</span>
+                    </li>
+
+                    <li class="d-flex align-items-center justify-content-between py-10 border-bottom">
+                      <div class="d-flex align-items-center">
+                        <div
+                          class="rounded-circle-shape bg-danger-subtle me-3 rounded-pill d-inline-flex align-items-center justify-content-center">
+                          <iconify-icon icon="solar:box-line-duotone" class="fs-7 text-danger"></iconify-icon>
+                        </div>
+                        <div>
+                          <h6 class="mb-1 fs-3">Total Exports</h6>
+                          <p class="mb-0 fs-2 d-flex align-items-center gap-1">
+                            This month<i class="ti ti-info-circle"></i></i>
+                          </p>
+                        </div>
+                      </div>
+                      <span
+                        class="badge rounded-pill fw-medium fs-2 d-flex align-items-center bg-success-subtle text-success text-end"><i
+                          class="ti ti-caret-up"></i>189</span>
+                    </li>
+
+                    <li class="d-flex align-items-center justify-content-between py-10 border-bottom">
+                      <div class="d-flex align-items-center">
+                        <div
+                          class="rounded-circle-shape bg-secondary-subtle me-3 rounded-pill d-inline-flex align-items-center justify-content-center">
+                          <iconify-icon icon="solar:warehouse-line-duotone" class="fs-7 text-secondary"></iconify-icon>
+                        </div>
+                        <div>
+                          <h6 class="mb-1 fs-3">Active Warehouses</h6>
+                          <p class="mb-0 fs-2 d-flex align-items-center gap-1">
+                            All locations<i class="ti ti-info-circle"></i></i>
+                          </p>
+                        </div>
+                      </div>
+                      <span
+                        class="badge rounded-pill fw-medium fs-2 d-flex align-items-center bg-success-subtle text-success text-end"><i
+                          class="ti ti-caret-up"></i>12</span>
+                    </li>
+
+                    <li class="d-flex align-items-center justify-content-between py-10 border-bottom">
+                      <div class="d-flex align-items-center">
+                        <div
+                          class="rounded-circle-shape bg-warning-subtle me-3 rounded-pill d-inline-flex align-items-center justify-content-center">
+                          <iconify-icon icon="solar:box-minimalistic-line-duotone"
+                            class="fs-7 text-warning"></iconify-icon>
+                        </div>
+                        <div>
+                          <h6 class="mb-1 fs-3">Low Stock Items</h6>
+                          <p class="mb-0 fs-2 d-flex align-items-center gap-1">
+                            Needs attention<i class="ti ti-info-circle"></i></i>
+                          </p>
+                        </div>
+                      </div>
+                      <span
+                        class="badge rounded-pill fw-medium fs-2 d-flex align-items-center bg-danger-subtle text-danger text-end"><i
+                          class="ti ti-caret-down"></i>23</span>
+                    </li>
+
+                    <li class="d-flex align-items-center justify-content-between py-10 border-bottom">
+                      <div class="d-flex align-items-center">
+                        <div
+                          class="rounded-circle-shape bg-info-subtle me-3 rounded-pill d-inline-flex align-items-center justify-content-center">
+                          <iconify-icon icon="solar:user-line-duotone" class="fs-7 text-info"></iconify-icon>
+                        </div>
+                        <div>
+                          <h6 class="mb-1 fs-3">Active Users</h6>
+                          <p class="mb-0 fs-2 d-flex align-items-center gap-1">
+                            System users<i class="ti ti-info-circle"></i></i>
+                          </p>
+                        </div>
+                      </div>
+                      <span
+                        class="badge rounded-pill fw-medium fs-2 d-flex align-items-center bg-success-subtle text-success text-end"><i
+                          class="ti ti-caret-up"></i>38</span>
+                    </li>
+                    <a href="./reports.html" class="fs-4 mt-7 text-center d-block">View more reports</a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div> 
+          <div class="py-6 px-6 text-center">
+            <p class="mb-0 fs-4">Design and Developed by <a href="#">Group 4</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+  <!-- solar icons -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</body>
+
+</html>
