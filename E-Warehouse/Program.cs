@@ -18,8 +18,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
-
 app.MapRazorPages();
+ 
+//app.MapGet("/", () => Results.Redirect("/Auth/Login"));
 
 app.Run();
