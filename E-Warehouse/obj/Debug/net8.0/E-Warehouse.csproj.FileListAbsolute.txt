@@ -32,3 +32,11 @@ E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\obj\Debug\net8.0\ref
 E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\obj\Debug\net8.0\E-Warehouse.pdb
 E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\obj\Debug\net8.0\E-Warehouse.genruntimeconfig.cache
 E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\obj\Debug\net8.0\ref\E-Warehouse.dll
+E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\bin\Debug\net8.0\System.Data.SqlClient.dll
+E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\obj\Debug\net8.0\E-Warehouse.csproj.AssemblyReference.cache
+E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\E-Warehouse\obj\Debug\net8.0\E-Wareho.DA982ED4.Up2Date
