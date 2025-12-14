@@ -31,11 +31,8 @@ const AddProduct = () => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
-
-    // For now, handling image as string/url. File upload logic would need backend support (multipart/form-data).
-    // The current backend DTO accepts 'Image' as string (nvarchar).
-    const handleImageChange = (e) => {
-        // Placeholder for file handling - maybe converting to Base64 or just filename
+ 
+    const handleImageChange = (e) => { 
         const file = e.target.files[0];
         if (file) {
             setFormData(prev => ({ ...prev, image: file.name }));
@@ -54,8 +51,7 @@ const AddProduct = () => {
                 description: formData.description,
                 image: formData.image || ''
             };
-
-            // Hardcoded UserID 1
+ 
             await productService.createProduct(productData, 1);
             navigate('/products');
         } catch (error) {

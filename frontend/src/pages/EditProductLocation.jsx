@@ -63,24 +63,13 @@ const EditProductLocation = () => {
                 quantity: parseInt(formData.quantity)
             };
 
-            // Assuming there's an update method, though user only mentioned Add/Edit pages.
-            // If update isn't in service, we might need to add it or use create if it handles upsert.
-            // For now assuming updateLocation exists or create serves as upsert if logic permits.
-            // Wait, I checked service file, updateLocation was NOT there.
-            // I should double check logic. For now adding basic put call via service extension or checking if I missed it.
-
-            // Checking service again:
-            // createLocation, deleteLocation, getAllLocations, getLocationById.
-            // It seems update is missing. I will implement update in the service file as well.
-
             if (productLocationService.updateLocation) {
                 await productLocationService.updateLocation(id, locationData);
             } else {
-                // Fallback or todo: likely need to add update method to service
                 console.warn("Update method not found in service");
             }
 
-            navigate('/product-locations');
+            navigate('/product-location');
         } catch (error) {
             console.error("Failed to update product location", error);
             alert("Failed to update product location");
@@ -119,7 +108,7 @@ const EditProductLocation = () => {
                                 <input type="number" className="form-control" id="quantity" value={formData.quantity} onChange={handleChange} min="0" required />
                             </div>
                             <button type="submit" className="btn btn-primary me-2">Update</button>
-                            <Link to="/product-locations" className="btn btn-secondary">Back</Link>
+                            <Link to="/product-location" className="btn btn-secondary">Back</Link>
                         </form>
                     </div>
                 </div>

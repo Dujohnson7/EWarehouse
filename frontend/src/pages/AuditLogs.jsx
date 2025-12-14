@@ -2,16 +2,14 @@ import React, { useState, useEffect } from 'react';
 import TablePagination from '../components/TablePagination';
 import auditLogService from '../services/auditLogService';
 
-const AuditLogs = () => {
-    // State
+const AuditLogs = () => { 
     const [auditLogs, setAuditLogs] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedAction, setSelectedAction] = useState('All');
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [loading, setLoading] = useState(true);
-
-    // Fetch Data
+ 
     useEffect(() => {
         const fetchLogs = async () => {
             try {
@@ -25,8 +23,7 @@ const AuditLogs = () => {
         };
         fetchLogs();
     }, []);
-
-    // Logic
+ 
     const filteredLogs = auditLogs.filter(log => {
         const action = log.action || '';
         const userId = log.userID ? log.userID.toString() : '';
@@ -46,8 +43,7 @@ const AuditLogs = () => {
     const currentItems = filteredLogs.slice(indexOfFirstItem, indexOfLastItem);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    // Get unique primary actions (first word) for filter
+ 
     const actions = ['All', ...new Set(auditLogs.map(l => l.action ? l.action.split(' ')[0] : 'Unknown'))];
 
     return (

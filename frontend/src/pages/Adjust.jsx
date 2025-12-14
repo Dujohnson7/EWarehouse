@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import stockMovementService from '../services/stockMovementService';
 import TablePagination from '../components/TablePagination';
+import authService from '../services/authService';
 
 const Adjust = () => {
     const [adjustments, setAdjustments] = useState([]);
@@ -39,7 +40,19 @@ const Adjust = () => {
     };
 
     const filteredAdjustments = adjustments.filter(adj => {
+        // Warehouse Filtering
+        const isAdmin = authService.isAdmin();
+        const isGeneralManager = authService.getUserRole() === 'General_Manager';
+        const userWarehouseId = authService.getUserWarehouse();
+
+        if (!isAdmin && !isGeneralManager && userWarehouseId) {
+            if (adj.warehouseID !== parseInt(userWarehouseId)) {
+                return false;
+            }
+        }
+
         const productName = adj.product?.productName || '';
+        const id = adj.movementID.toString();
         return productName.toLowerCase().includes(searchTerm.toLowerCase());
     });
 
@@ -54,7 +67,7 @@ const Adjust = () => {
             <div className="card-body">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                     <h5 className="card-title fw-semibold mb-0">Stock Adjustments</h5>
-                    <Link to="/adjust/add" className="btn btn-primary">
+                    <Link to="/adjustment/add" className="btn btn-primary">
                         <i className="ti ti-plus"></i> Add Adjustment
                     </Link>
                 </div>
@@ -103,7 +116,7 @@ const Adjust = () => {
                                                 <td><span className="usr-date">{new Date(adj.createdAt).toLocaleDateString()}</span></td>
                                                 <td>
                                                     <div className="action-btn">
-                                                        <Link to={`/adjust/edit/${adj.movementID}`} className="text-primary edit">
+                                                        <Link to={`/adjustment/edit/${adj.movementID}`} className="text-primary edit">
                                                             <i className="ti ti-edit fs-5"></i>
                                                         </Link>
                                                         <a href="#" className="text-dark delete ms-2" onClick={(e) => { e.preventDefault(); handleDelete(adj.movementID); }}>

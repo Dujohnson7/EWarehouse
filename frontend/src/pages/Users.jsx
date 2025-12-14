@@ -41,8 +41,7 @@ const Users = () => {
             }
         }
     };
-
-    // Filter and Pagination
+ 
     const filteredUsers = users.filter(user => {
         const username = user.username || '';
         const email = user.email || '';

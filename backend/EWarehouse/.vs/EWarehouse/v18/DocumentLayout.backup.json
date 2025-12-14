@@ -3,6 +3,102 @@
   "WorkspaceRootPath": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\controllers\\binscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\controllers\\binscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\binservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\binservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\ibinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\ibinservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\izoneservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\izoneservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\controllers\\zonescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\controllers\\zonescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\zoneservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\zoneservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\dtos\\commondtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\dtos\\commondtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\models\\zone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\models\\zone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\dtos\\userdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\dtos\\userdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\controllers\\stockmovementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\controllers\\stockmovementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\ewarehouse.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\ewarehouse.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\models\\stockstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\models\\stockstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\iwarehouseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\iwarehouseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\alertservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\alertservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\models\\alert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\models\\alert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,16 +119,8 @@
       "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\models\\productlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\models\\stockstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\models\\stockstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\models\\dtos\\productlocationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\models\\dtos\\productlocationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\models\\stockmovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,10 +133,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\services\\stockmovementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\services\\stockmovementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|e:\\auca\\sem 7\\dot net\\final project\\e-warehouse\\backend\\ewarehouse\\ewarehouse\\dtos\\commondtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A111FE7D-A48D-4DE3-BC71-41ADB1F9BF94}|EWarehouse\\EWarehouse.csproj|solutionrelative:ewarehouse\\dtos\\commondtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,15 +142,288 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "EWarehouse\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Properties\\launchSettings.json",
+              "RelativeToolTip": "EWarehouse\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-14T14:02:38.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\appsettings.json",
+              "RelativeDocumentMoniker": "EWarehouse\\appsettings.json",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\appsettings.json",
+              "RelativeToolTip": "EWarehouse\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-14T14:02:31.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BinsController.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\BinsController.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Controllers\\BinsController.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\BinsController.cs",
+              "RelativeToolTip": "EWarehouse\\Controllers\\BinsController.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAIwEMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:53:17.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BinService.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\BinService.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Services\\BinService.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\BinService.cs",
+              "RelativeToolTip": "EWarehouse\\Services\\BinService.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAIwEoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:52:13.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IBinService.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\IBinService.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Services\\IBinService.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\IBinService.cs",
+              "RelativeToolTip": "EWarehouse\\Services\\IBinService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:51:56.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ZonesController.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\ZonesController.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Controllers\\ZonesController.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\ZonesController.cs",
+              "RelativeToolTip": "EWarehouse\\Controllers\\ZonesController.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAIwD0AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:48:35.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ZoneService.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\ZoneService.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Services\\ZoneService.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\ZoneService.cs",
+              "RelativeToolTip": "EWarehouse\\Services\\ZoneService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA1wB0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:48:16.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IZoneService.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\IZoneService.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Services\\IZoneService.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\IZoneService.cs",
+              "RelativeToolTip": "EWarehouse\\Services\\IZoneService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:47:55.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Zone.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\Zone.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Models\\Zone.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\Zone.cs",
+              "RelativeToolTip": "EWarehouse\\Models\\Zone.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:47:03.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Controllers\\UsersController.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "EWarehouse\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAcwBkAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:40:17.37Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\IProductService.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Services\\IProductService.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\IProductService.cs",
+              "RelativeToolTip": "EWarehouse\\Services\\IProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:18:47.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Services\\ProductService.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\ProductService.cs",
+              "RelativeToolTip": "EWarehouse\\Services\\ProductService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowCQAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:17:59.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\IUserService.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Services\\IUserService.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\IUserService.cs",
+              "RelativeToolTip": "EWarehouse\\Services\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:39:03.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Services\\UserService.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\UserService.cs",
+              "RelativeToolTip": "EWarehouse\\Services\\UserService.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAIwH8AAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:39:07.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserDtos.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\DTOs\\UserDtos.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\DTOs\\UserDtos.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\DTOs\\UserDtos.cs",
+              "RelativeToolTip": "EWarehouse\\DTOs\\UserDtos.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T13:38:47.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "StockMovementsController.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\StockMovementsController.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Controllers\\StockMovementsController.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\StockMovementsController.cs",
+              "RelativeToolTip": "EWarehouse\\Controllers\\StockMovementsController.cs",
+              "ViewState": "AgIAAH4BAAAAAAAAAAAuwJUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:22:19.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "EWarehouse",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\EWarehouse.csproj",
+              "RelativeDocumentMoniker": "EWarehouse\\EWarehouse.csproj",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\EWarehouse.csproj",
+              "RelativeToolTip": "EWarehouse\\EWarehouse.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-14T12:22:18.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Controllers\\ProductsController.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "EWarehouse\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:19:01.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CommonDtos.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\DTOs\\CommonDtos.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\DTOs\\CommonDtos.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\DTOs\\CommonDtos.cs",
+              "RelativeToolTip": "EWarehouse\\DTOs\\CommonDtos.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T10:16:55.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Product.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Models\\Product.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\Product.cs",
+              "RelativeToolTip": "EWarehouse\\Models\\Product.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T12:17:45.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IWarehouseService.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\IWarehouseService.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Services\\IWarehouseService.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\IWarehouseService.cs",
+              "RelativeToolTip": "EWarehouse\\Services\\IWarehouseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T07:52:36.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "Alert.cs",
               "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\Alert.cs",
               "RelativeDocumentMoniker": "EWarehouse\\Models\\Alert.cs",
@@ -79,7 +436,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 16,
+              "Title": "Users.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Models\\Users.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\Users.cs",
+              "RelativeToolTip": "EWarehouse\\Models\\Users.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwBAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T20:59:49.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AlertService.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\AlertService.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Services\\AlertService.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\AlertService.cs",
+              "RelativeToolTip": "EWarehouse\\Services\\AlertService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowB8AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T06:57:43.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
               "Title": "AlertsController.cs",
               "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\AlertsController.cs",
               "RelativeDocumentMoniker": "EWarehouse\\Controllers\\AlertsController.cs",
@@ -87,12 +470,11 @@
               "RelativeToolTip": "EWarehouse\\Controllers\\AlertsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T23:50:57.758Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-13T23:50:57.758Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 27,
               "Title": "ApiContext.cs",
               "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Data\\ApiContext.cs",
               "RelativeDocumentMoniker": "EWarehouse\\Data\\ApiContext.cs",
@@ -100,12 +482,11 @@
               "RelativeToolTip": "EWarehouse\\Data\\ApiContext.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T23:35:57.545Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-13T23:35:57.545Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 28,
               "Title": "ProductLocation.cs",
               "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\ProductLocation.cs",
               "RelativeDocumentMoniker": "EWarehouse\\Models\\ProductLocation.cs",
@@ -113,12 +494,11 @@
               "RelativeToolTip": "EWarehouse\\Models\\ProductLocation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T23:19:36.148Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-13T23:19:36.148Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 29,
               "Title": "ProductLocationDto.cs",
               "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\DTOs\\ProductLocationDto.cs",
               "RelativeDocumentMoniker": "EWarehouse\\Models\\DTOs\\ProductLocationDto.cs",
@@ -126,25 +506,11 @@
               "RelativeToolTip": "EWarehouse\\Models\\DTOs\\ProductLocationDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T22:05:09.878Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-13T22:05:09.878Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Users.cs",
-              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\Users.cs",
-              "RelativeDocumentMoniker": "EWarehouse\\Models\\Users.cs",
-              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\Users.cs",
-              "RelativeToolTip": "EWarehouse\\Models\\Users.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T20:59:49.24Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 31,
               "Title": "Warehouse.cs",
               "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\Warehouse.cs",
               "RelativeDocumentMoniker": "EWarehouse\\Models\\Warehouse.cs",
@@ -152,12 +518,24 @@
               "RelativeToolTip": "EWarehouse\\Models\\Warehouse.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T20:40:51.615Z",
+              "WhenOpened": "2025-12-13T20:40:51.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "StockStatus.cs",
+              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\StockStatus.cs",
+              "RelativeDocumentMoniker": "EWarehouse\\Models\\StockStatus.cs",
+              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\StockStatus.cs",
+              "RelativeToolTip": "EWarehouse\\Models\\StockStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-13T18:47:46.686Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 32,
               "Title": "StockMovementService.cs",
               "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Services\\StockMovementService.cs",
               "RelativeDocumentMoniker": "EWarehouse\\Services\\StockMovementService.cs",
@@ -165,25 +543,11 @@
               "RelativeToolTip": "EWarehouse\\Services\\StockMovementService.cs",
               "ViewState": "AgIAAO4AAAAAAAAAAAAkwPMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T18:48:59.587Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-13T18:48:59.587Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StockStatus.cs",
-              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\StockStatus.cs",
-              "RelativeDocumentMoniker": "EWarehouse\\Models\\StockStatus.cs",
-              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\StockStatus.cs",
-              "RelativeToolTip": "EWarehouse\\Models\\StockStatus.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T18:47:46.686Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 30,
               "Title": "StockMovement.cs",
               "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Models\\StockMovement.cs",
               "RelativeDocumentMoniker": "EWarehouse\\Models\\StockMovement.cs",
@@ -191,12 +555,11 @@
               "RelativeToolTip": "EWarehouse\\Models\\StockMovement.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAywAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T18:47:22.72Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-13T18:47:22.72Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 26,
               "Title": "ProductLocationController.cs",
               "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\Controllers\\ProductLocationController.cs",
               "RelativeDocumentMoniker": "EWarehouse\\Controllers\\ProductLocationController.cs",
@@ -204,20 +567,7 @@
               "RelativeToolTip": "EWarehouse\\Controllers\\ProductLocationController.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAuwEAAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T10:16:05Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CommonDtos.cs",
-              "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\DTOs\\CommonDtos.cs",
-              "RelativeDocumentMoniker": "EWarehouse\\DTOs\\CommonDtos.cs",
-              "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\DTOs\\CommonDtos.cs",
-              "RelativeToolTip": "EWarehouse\\DTOs\\CommonDtos.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAA7wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T10:16:55.621Z"
+              "WhenOpened": "2025-12-12T10:16:05Z"
             }
           ]
         }

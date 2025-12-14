@@ -5,6 +5,7 @@ import warehouseService from '../services/warehouseService';
 import zoneService from '../services/zoneService';
 import TablePagination from '../components/TablePagination';
 import PermissionGate from '../components/PermissionGate';
+import authService from '../services/authService';
 
 const Bins = () => {
     const [bins, setBins] = useState([]);
@@ -50,10 +51,20 @@ const Bins = () => {
                 console.error("Failed to delete bin", error);
             }
         }
-    };
-
-    // Filter and Pagination
+    }; 
+    
     const filteredBins = bins.filter(bin => {
+        // Warehouse Filtering
+        const isAdmin = authService.isAdmin();
+        const isGeneralManager = authService.getUserRole() === 'General_Manager';
+        const userWarehouseId = authService.getUserWarehouse();
+
+        if (!isAdmin && !isGeneralManager && userWarehouseId) {
+             if (bin.zone?.warehouse?.warehouseID !== parseInt(userWarehouseId)) {
+                return false;
+             }
+        }
+
         const binCode = bin.binCode || '';
         const warehouseName = bin.zone?.warehouse?.name || '';
         const zoneName = bin.zone?.zoneName || '';

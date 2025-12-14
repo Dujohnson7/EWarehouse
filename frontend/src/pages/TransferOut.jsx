@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import stockMovementService from '../services/stockMovementService';
 import TablePagination from '../components/TablePagination';
+import authService from '../services/authService';
 
 const TransferOut = () => {
     const [transfers, setTransfers] = useState([]);
@@ -18,7 +19,6 @@ const TransferOut = () => {
     const fetchTransfers = async () => {
         try {
             const data = await stockMovementService.getAllMovements();
-            // Filter for TRANSFER_OUT movements
             const transferOuts = data.filter(m => m.movementType === 'TRANSFER_OUT');
             setTransfers(transferOuts);
         } catch (error) {
@@ -28,8 +28,18 @@ const TransferOut = () => {
         }
     };
 
-    // Filter and Pagination
     const filteredTransfers = transfers.filter(transfer => {
+        // Warehouse Filtering
+        const isAdmin = authService.isAdmin();
+        const isGeneralManager = authService.getUserRole() === 'General_Manager';
+        const userWarehouseId = authService.getUserWarehouse();
+
+        if (!isAdmin && !isGeneralManager && userWarehouseId) {
+            if (transfer.warehouseID !== parseInt(userWarehouseId)) {
+                return false;
+            }
+        }
+
         const productName = transfer.product?.productName || '';
         const transferCodeStr = transfer.transferCode?.toString() || '';
         const matchesSearch = productName.toLowerCase().includes(searchTerm.toLowerCase()) ||

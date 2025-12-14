@@ -15,12 +15,10 @@ const Login = () => {
         setLoading(true);
 
         try {
-            const response = await authService.login(email, password);
-            // Login successful, redirect to dashboard
+            const response = await authService.login(email, password); 
             navigate('/');
         } catch (err) {
-            console.error('Login error:', err);
-            // Better error message handling
+            console.error('Login error:', err); 
             if (err.response?.status === 401) {
                 setError('Invalid email or password');
             } else if (err.response?.data?.message) {
@@ -42,7 +40,7 @@ const Login = () => {
             {error && <div className="alert alert-danger">{error}</div>}
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label">Username</label>
+                    <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
                     <input
                         type="email"
                         className="form-control"
@@ -74,11 +72,7 @@ const Login = () => {
                 </div>
                 <button type="submit" className="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" disabled={loading}>
                     {loading ? 'Signing In...' : 'Sign In'}
-                </button>
-                <div className="d-flex align-items-center justify-content-center">
-                    <p className="fs-4 mb-0 fw-bold">New to MaterialM?</p>
-                    <Link className="text-primary fw-bold ms-2" to="/auth/register">Create an account</Link>
-                </div>
+                </button> 
             </form>
         </>
     );

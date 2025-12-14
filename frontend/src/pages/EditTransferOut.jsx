@@ -35,8 +35,7 @@ const EditTransferOut = () => {
                 setProducts(productsData);
                 setWarehouses(warehousesData);
                 setBins(binsData);
-
-                // Populate form with existing data
+ 
                 setFormData({
                     productId: movementData.productID || '',
                     quantity: movementData.quantity || '',
@@ -55,8 +54,7 @@ const EditTransferOut = () => {
         };
         fetchData();
     }, [id]);
-
-    // Filter bins when warehouse changes
+ 
     useEffect(() => {
         if (formData.fromWarehouseId) {
             const filtered = bins.filter(bin => bin.warehouseID === parseInt(formData.fromWarehouseId));

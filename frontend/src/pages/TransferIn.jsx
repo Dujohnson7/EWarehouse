@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import stockMovementService from '../services/stockMovementService';
 import TablePagination from '../components/TablePagination';
+import authService from '../services/authService';
 
 const TransferIn = () => {
     const [transfers, setTransfers] = useState([]);
@@ -17,7 +18,6 @@ const TransferIn = () => {
     const fetchTransfers = async () => {
         try {
             const data = await stockMovementService.getAllMovements();
-            // Filter for pending TRANSFER_IN movements
             const pendingTransfers = data.filter(m =>
                 m.movementType === 'TRANSFER_IN' && m.transferStatus === false
             );
@@ -31,11 +31,9 @@ const TransferIn = () => {
 
     const handleComplete = async (transfer) => {
         if (window.confirm('Are you sure you want to complete this transfer?')) {
-            // Mark as completing to disable button
             setCompletingIds(prev => new Set(prev).add(transfer.movementID));
 
             try {
-                // Prepare update data with same structure as create
                 const updateData = {
                     productId: transfer.productID,
                     quantity: transfer.quantity,
@@ -46,11 +44,10 @@ const TransferIn = () => {
 
                 await stockMovementService.updateTransferIn(transfer.movementID, updateData);
                 alert('Transfer completed successfully!');
-                fetchTransfers(); // Refresh list
+                fetchTransfers();
             } catch (error) {
                 console.error("Failed to complete transfer", error);
                 alert('Failed to complete transfer');
-                // Remove from completing set on error
                 setCompletingIds(prev => {
                     const newSet = new Set(prev);
                     newSet.delete(transfer.movementID);
@@ -60,8 +57,22 @@ const TransferIn = () => {
         }
     };
 
-    // Filter and Pagination
     const filteredTransfers = transfers.filter(transfer => {
+        // Warehouse Filtering
+        // For Transfer In, we want to see transfers destined for our warehouse
+        // However, the transfer object has 'warehouseID' which usually points to the source or destination depending on context.
+        // In TransferIn component logic: m.movementType === 'TRANSFER_IN'
+        // Let's assume for TRANSFER_IN records, the warehouseID is the Destination Warehouse.
+        const isAdmin = authService.isAdmin();
+        const isGeneralManager = authService.getUserRole() === 'General_Manager';
+        const userWarehouseId = authService.getUserWarehouse();
+
+        if (!isAdmin && !isGeneralManager && userWarehouseId) {
+            if (transfer.warehouseID !== parseInt(userWarehouseId)) {
+                return false;
+            }
+        }
+
         const productName = transfer.product?.productName || '';
         const transferCodeStr = transfer.transferCode?.toString() || '';
         return productName.toLowerCase().includes(searchTerm.toLowerCase()) ||

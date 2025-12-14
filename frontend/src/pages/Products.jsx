@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import TablePagination from '../components/TablePagination';
 import productService from '../services/productService';
 import categoryService from '../services/categoryService';
+import authService from '../services/authService';
 
-const Products = () => {
-    // State
+const Products = () => { 
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -13,8 +13,9 @@ const Products = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [loading, setLoading] = useState(true);
-
-    // Fetch Data
+ 
+    const { isInsert, isUpdate, isDelete } = authService.getUserPermissions();
+ 
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -32,14 +33,11 @@ const Products = () => {
         };
         fetchData();
     }, []);
-
-    // Delete Function
+ 
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this product?')) {
-            try {
-                // Hardcoded UserID 1 for now
-                await productService.deleteProduct(id, 1);
-                // Refresh list
+            try { 
+                await productService.deleteProduct(id, 1); 
                 const data = await productService.getAllProducts();
                 setProducts(data);
             } catch (error) {
@@ -48,8 +46,7 @@ const Products = () => {
             }
         }
     };
-
-    // Logic
+ 
     const filteredProducts = products.filter(product => {
         const matchesSearch = product.productName.toLowerCase().includes(searchTerm.toLowerCase()) ||
             product.sku.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -101,9 +98,11 @@ const Products = () => {
                                 </select>
                             </div>
                             <div className="col-md-4 col-xl-6 text-end d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
-                                <Link to="/products/add" className="btn btn-primary d-flex align-items-center">
-                                    <i className="ti ti-plus text-white me-1 fs-5"></i> Add Product
-                                </Link>
+                                {isInsert && (
+                                    <Link to="/products/add" className="btn btn-primary d-flex align-items-center">
+                                        <i className="ti ti-plus text-white me-1 fs-5"></i> Add Product
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -148,15 +147,19 @@ const Products = () => {
                                                 </td>
                                                 <td>
                                                     <div className="action-btn">
-                                                        <Link to={`/products/edit/${product.productID}`} className="text-primary edit">
-                                                            <i className="ti ti-edit fs-5"></i>
-                                                        </Link>
-                                                        <button
-                                                            className="btn btn-link text-dark delete ms-2 p-0"
-                                                            onClick={() => handleDelete(product.productID)}
-                                                        >
-                                                            <i className="ti ti-trash fs-5"></i>
-                                                        </button>
+                                                        {isUpdate && (
+                                                            <Link to={`/products/edit/${product.productID}`} className="text-primary edit">
+                                                                <i className="ti ti-edit fs-5"></i>
+                                                            </Link>
+                                                        )}
+                                                        {isDelete && (
+                                                            <button
+                                                                className="btn btn-link text-dark delete ms-2 p-0"
+                                                                onClick={() => handleDelete(product.productID)}
+                                                            >
+                                                                <i className="ti ti-trash fs-5"></i>
+                                                            </button>
+                                                        )}
                                                     </div>
                                                 </td>
                                             </tr>

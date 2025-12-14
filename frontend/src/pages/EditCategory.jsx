@@ -44,8 +44,7 @@ const EditCategory = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            // Hardcoded UserID 1 for now
+        try { 
             await categoryService.updateCategory(id, formData, 1);
             navigate('/categories');
         } catch (error) {

@@ -2,27 +2,25 @@ import React from 'react';
 import authService from '../services/authService';
 
 const PermissionGate = ({ type, children }) => {
-    // const user = authService.getCurrentUser();
+    const { isInsert, isUpdate, isDelete } = authService.getUserPermissions();
 
-    // if (!user) return null;
+    let hasPermission = false;
 
-    // let hasPermission = false;
+    switch (type) {
+        case 'insert':
+            hasPermission = isInsert;
+            break;
+        case 'update':
+            hasPermission = isUpdate;
+            break;
+        case 'delete':
+            hasPermission = isDelete;
+            break;
+        default:
+            hasPermission = false;
+    }
 
-    // switch (type) {
-    //     case 'insert':
-    //         hasPermission = user.isInsert;
-    //         break;
-    //     case 'update':
-    //         hasPermission = user.isUpdate;
-    //         break;
-    //     case 'delete':
-    //         hasPermission = user.isDelete;
-    //         break;
-    //     default:
-    //         hasPermission = false;
-    // }
-
-    // if (!hasPermission) return null;
+    if (!hasPermission) return null;
 
     return <>{children}</>;
 };

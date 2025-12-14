@@ -38,7 +38,6 @@ import EditImport from './pages/EditImport';
 import AddExport from './pages/AddExport';
 import EditExport from './pages/EditExport';
 import Profile from './pages/Profile';
-import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import TransferIn from './pages/TransferIn';
 import TransferOut from './pages/TransferOut';
@@ -48,68 +47,65 @@ import EditAdjust from './pages/EditAdjust';
 import AddTransferOut from './pages/AddTransferOut';
 import EditTransferOut from './pages/EditTransferOut';
 
+import PrivateRoute from './components/PrivateRoute';
+
 function App() {
     return (
         <Router>
             <Routes>
                 {/* Main Application Routes */}
                 <Route path="/" element={<MainLayout />}>
-                    <Route index element={<Dashboard />} />
+                    <Route index element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+                    <Route path="dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+
                     {/* Entity List Pages */}
-                    <Route path="zone" element={<Zone />} />
-                    <Route path="products" element={<Products />} />
-                    <Route path="users" element={<Users />} />
-                    <Route path="categories" element={<Categories />} />
-                    <Route path="warehouse" element={<Warehouse />} />
-                    <Route path="bins" element={<Bins />} />
-                    <Route path="product-locations" element={<ProductLocations />} />
-                    <Route path="product-locations/add" element={<AddProductLocation />} />
-                    <Route path="product-locations/edit/:id" element={<EditProductLocation />} />
-                    <Route path="stock-movements" element={<StockMovements />} />
-                    <Route path="alerts" element={<Alerts />} />
-                    <Route path="audit-logs" element={<AuditLogs />} />
+                    <Route path="zone" element={<PrivateRoute requiredPath="/zones"><Zone /></PrivateRoute>} />
+                    <Route path="products" element={<PrivateRoute requiredPath="/products"><Products /></PrivateRoute>} />
+                    <Route path="users" element={<PrivateRoute requiredPath="/users"><Users /></PrivateRoute>} />
+                    <Route path="categories" element={<PrivateRoute requiredPath="/categories"><Categories /></PrivateRoute>} />
+                    <Route path="warehouses" element={<PrivateRoute requiredPath="/warehouses"><Warehouse /></PrivateRoute>} />
+                    <Route path="bins" element={<PrivateRoute requiredPath="/bins"><Bins /></PrivateRoute>} />
+                    <Route path="product-location" element={<PrivateRoute requiredPath="/productlocation"><ProductLocations /></PrivateRoute>} />
+                    <Route path="stock-movements" element={<PrivateRoute requiredPath="/stockmovements"><StockMovements /></PrivateRoute>} />
+                    <Route path="stock-status" element={<PrivateRoute requiredPath="/stockstatus"><Stock /></PrivateRoute>} />
+                    <Route path="alerts" element={<PrivateRoute><Alerts /></PrivateRoute>} />
+                    <Route path="audit-logs" element={<PrivateRoute requiredPath="/audit"><AuditLogs /></PrivateRoute>} />
+                    <Route path="import" element={<PrivateRoute requiredPath="/import"><Import /></PrivateRoute>} />
+                    <Route path="export" element={<PrivateRoute requiredPath="/export"><Export /></PrivateRoute>} />
+                    <Route path="reports" element={<PrivateRoute><Reports /></PrivateRoute>} />
+                    <Route path="profile" element={<PrivateRoute requiredPath="/profile"><Profile /></PrivateRoute>} />
+                    <Route path="transfer-in" element={<PrivateRoute requiredPath="/transfer-in"><TransferIn /></PrivateRoute>} />
+                    <Route path="transfer-out" element={<PrivateRoute requiredPath="/transfer-out"><TransferOut /></PrivateRoute>} />
+                    <Route path="adjustment" element={<PrivateRoute requiredPath="/adjustment"><Adjust /></PrivateRoute>} />
 
-                    {/* Add/Edit Forms */}
-                    <Route path="zone/add" element={<AddZone />} />
-                    <Route path="zone/edit/:id" element={<EditZone />} />
-                    <Route path="products/add" element={<AddProduct />} />
-                    <Route path="products/edit/:id" element={<EditProduct />} />
-                    <Route path="users/add" element={<AddUser />} />
-                    <Route path="users/edit/:id" element={<EditUser />} />
-                    <Route path="categories/add" element={<AddCategory />} />
-                    <Route path="categories/edit/:id" element={<EditCategory />} />
-                    <Route path="warehouse/add" element={<AddWarehouse />} />
-                    <Route path="warehouse/edit/:id" element={<EditWarehouse />} />
-                    <Route path="bins/add" element={<AddBin />} />
-                    <Route path="bins/edit/:id" element={<EditBin />} />
-
-                    <Route path="stock" element={<Stock />} />
-                    <Route path="import" element={<Import />} />
-                    <Route path="import/add" element={<AddImport />} />
-                    <Route path="import/edit/:id" element={<EditImport />} />
-
-                    <Route path="export" element={<Export />} />
-                    <Route path="export/add" element={<AddExport />} />
-                    <Route path="export/edit/:id" element={<EditExport />} />
-
-                    <Route path="adjust" element={<Adjust />} />
-                    <Route path="adjust/add" element={<AddAdjust />} />
-                    <Route path="adjust/edit/:id" element={<EditAdjust />} />
-
-                    <Route path="transfer-in" element={<TransferIn />} />
-                    <Route path="transfer-out" element={<TransferOut />} />
-                    <Route path="transfer-out/add" element={<AddTransferOut />} />
-                    <Route path="transfer-out/edit/:id" element={<EditTransferOut />} />
-
-                    <Route path="reports" element={<Reports />} />
-
-                    <Route path="profile" element={<Profile />} />
+                    {/* Add/Edit Pages */}
+                    <Route path="warehouses/add" element={<PrivateRoute requiredPath="/warehouses"><AddWarehouse /></PrivateRoute>} />
+                    <Route path="warehouses/edit/:id" element={<PrivateRoute requiredPath="/warehouses"><EditWarehouse /></PrivateRoute>} />
+                    <Route path="bins/add" element={<PrivateRoute requiredPath="/bins"><AddBin /></PrivateRoute>} />
+                    <Route path="bins/edit/:id" element={<PrivateRoute requiredPath="/bins"><EditBin /></PrivateRoute>} />
+                    <Route path="product-location/add" element={<PrivateRoute requiredPath="/productlocation"><AddProductLocation /></PrivateRoute>} />
+                    <Route path="product-location/edit/:id" element={<PrivateRoute requiredPath="/productlocation"><EditProductLocation /></PrivateRoute>} />
+                    <Route path="zone/add" element={<PrivateRoute requiredPath="/zones"><AddZone /></PrivateRoute>} />
+                    <Route path="zone/edit/:id" element={<PrivateRoute requiredPath="/zones"><EditZone /></PrivateRoute>} />
+                    <Route path="products/add" element={<PrivateRoute requiredPath="/products"><AddProduct /></PrivateRoute>} />
+                    <Route path="products/edit/:id" element={<PrivateRoute requiredPath="/products"><EditProduct /></PrivateRoute>} />
+                    <Route path="users/add" element={<PrivateRoute requiredPath="/users"><AddUser /></PrivateRoute>} />
+                    <Route path="users/edit/:id" element={<PrivateRoute requiredPath="/users"><EditUser /></PrivateRoute>} />
+                    <Route path="categories/add" element={<PrivateRoute requiredPath="/categories"><AddCategory /></PrivateRoute>} />
+                    <Route path="categories/edit/:id" element={<PrivateRoute requiredPath="/categories"><EditCategory /></PrivateRoute>} />
+                    <Route path="import/add" element={<PrivateRoute requiredPath="/import"><AddImport /></PrivateRoute>} />
+                    <Route path="import/edit/:id" element={<PrivateRoute requiredPath="/import"><EditImport /></PrivateRoute>} />
+                    <Route path="export/add" element={<PrivateRoute requiredPath="/export"><AddExport /></PrivateRoute>} />
+                    <Route path="export/edit/:id" element={<PrivateRoute requiredPath="/export"><EditExport /></PrivateRoute>} />
+                    <Route path="adjustment/add" element={<PrivateRoute requiredPath="/adjustment"><AddAdjust /></PrivateRoute>} />
+                    <Route path="adjustment/edit/:id" element={<PrivateRoute requiredPath="/adjustment"><EditAdjust /></PrivateRoute>} />
+                    <Route path="transfer-out/add" element={<PrivateRoute requiredPath="/transfer-out"><AddTransferOut /></PrivateRoute>} />
+                    <Route path="transfer-out/edit/:id" element={<PrivateRoute requiredPath="/transfer-out"><EditTransferOut /></PrivateRoute>} />
                 </Route>
 
                 {/* Authentication Routes */}
                 <Route path="/auth" element={<AuthLayout />}>
                     <Route path="login" element={<Login />} />
-                    <Route path="register" element={<Register />} />
                     <Route path="forgot-password" element={<ForgotPassword />} />
                 </Route>
             </Routes>

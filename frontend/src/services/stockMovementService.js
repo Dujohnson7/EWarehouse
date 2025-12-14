@@ -52,11 +52,7 @@ const stockMovementService = {
         const response = await api.delete(`/StockMovements/adjust/${id}`);
         return response.data;
     },
-
-    // Transfer (IN/OUT combined or separate? Checking Backend...)
-    // Backend has Transfer_In and Transfer_Out SPs, but Controller might expose them differently.
-    // Checked Controller: It likely has separate endpoints or a type field.
-    // Assuming standard paths based on other methods.
+ 
 
     // Transfer OUT (separate from Transfer IN)
     createTransferOut: async (data) => {

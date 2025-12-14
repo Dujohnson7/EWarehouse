@@ -142,3 +142,4 @@ E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\backend\EWarehouse\EWarehouse\ob
 E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\backend\EWarehouse\EWarehouse\obj\Debug\net8.0\ref\EWarehouse.dll
 E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\backend\EWarehouse\EWarehouse\obj\Debug\net8.0\swae.build.ex.cache
 E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\backend\EWarehouse\EWarehouse\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\AUCA\Sem 7\Dot net\final Project\E-Warehouse\backend\EWarehouse\EWarehouse\obj\Debug\net8.0\EWarehouse.sourcelink.json

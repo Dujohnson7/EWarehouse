@@ -4,7 +4,7 @@ import authService from '../../services/authService';
 
 const ForgotPassword = () => {
     const navigate = useNavigate();
-    const [step, setStep] = useState(1); // 1: Email, 2: OTP & New Password
+    const [step, setStep] = useState(1); 
     const [email, setEmail] = useState('');
     const [otpCode, setOtpCode] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -39,14 +39,12 @@ const ForgotPassword = () => {
         e.preventDefault();
         setError('');
         setSuccess('');
-
-        // Validate passwords match
+ 
         if (newPassword !== confirmPassword) {
             setError('Passwords do not match');
             return;
         }
-
-        // Validate password strength
+ 
         if (newPassword.length < 6) {
             setError('Password must be at least 6 characters long');
             return;

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import productLocationService from '../services/productLocationService';
 import TablePagination from '../components/TablePagination';
 import PermissionGate from '../components/PermissionGate';
+import authService from '../services/authService';
 
 const ProductLocations = () => {
     const [locations, setLocations] = useState([]);
@@ -37,8 +38,20 @@ const ProductLocations = () => {
         }
     };
 
-    // Filter and Pagination
+    // Permissions
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
+
     const filteredLocations = locations.filter(loc => {
+        // Warehouse Filtering
+        if (!isAdmin && !isGeneralManager && userWarehouseId) {
+            // Check nested bin warehouseID
+            if (loc.bin?.warehouseID !== parseInt(userWarehouseId)) {
+                return false;
+            }
+        }
+
         const productName = loc.productName || '';
         const binCode = loc.binCode || '';
 
@@ -60,7 +73,7 @@ const ProductLocations = () => {
                 <div className="d-flex justify-content-between align-items-center mb-4">
                     <h5 className="card-title fw-semibold">Product Locations</h5>
                     <PermissionGate type="insert">
-                        <Link to="/product-locations/add" className="btn btn-primary">Add Product Location</Link>
+                        <Link to="/product-location/add" className="btn btn-primary">Add Product Location</Link>
                     </PermissionGate>
                 </div>
 
@@ -107,7 +120,7 @@ const ProductLocations = () => {
                                             <td>
                                                 <div className="action-btn">
                                                     <PermissionGate type="update">
-                                                        <Link to={`/product-locations/edit/${loc.productLocationID}`} className="text-info edit">
+                                                        <Link to={`/product-location/edit/${loc.productLocationID}`} className="text-info edit">
                                                             <i className="ti ti-eye fs-5"></i>
                                                         </Link>
                                                     </PermissionGate>

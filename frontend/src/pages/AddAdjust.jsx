@@ -4,6 +4,7 @@ import stockMovementService from '../services/stockMovementService';
 import productService from '../services/productService';
 import warehouseService from '../services/warehouseService';
 import binService from '../services/binService';
+import authService from '../services/authService';
 
 const AddAdjust = () => {
     const navigate = useNavigate();
@@ -11,6 +12,13 @@ const AddAdjust = () => {
     const [warehouses, setWarehouses] = useState([]);
     const [bins, setBins] = useState([]);
     const [filteredBins, setFilteredBins] = useState([]);
+
+
+
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
+
     const [formData, setFormData] = useState({
         productId: '',
         warehouseId: '',
@@ -30,19 +38,21 @@ const AddAdjust = () => {
                 setProducts(productsData);
                 setWarehouses(warehousesData);
                 setBins(binsData);
+
+                if (!isAdmin && !isGeneralManager && userWarehouseId) {
+                    setFormData(prev => ({ ...prev, warehouseId: userWarehouseId.toString() }));
+                }
             } catch (error) {
                 console.error("Failed to load dropdown data", error);
             }
         };
         fetchData();
-    }, []);
+    }, [isAdmin, isGeneralManager, userWarehouseId]);
 
-    // Filter bins when warehouse changes
     useEffect(() => {
         if (formData.warehouseId) {
             const filtered = bins.filter(bin => bin.warehouseID === parseInt(formData.warehouseId));
             setFilteredBins(filtered);
-            // Reset bin selection if current bin not in filtered list
             if (formData.binId && !filtered.find(b => b.binCode === formData.binId)) {
                 setFormData(prev => ({ ...prev, binId: '' }));
             }
@@ -69,7 +79,7 @@ const AddAdjust = () => {
             };
 
             await stockMovementService.createStockAdjust(adjustData);
-            navigate('/adjust');
+            navigate('/adjustment');
         } catch (error) {
             console.error("Failed to create adjustment", error);
             alert("Failed to create adjustment");
@@ -94,7 +104,14 @@ const AddAdjust = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="warehouseId" className="form-label">Warehouse</label>
-                                <select className="form-select" id="warehouseId" value={formData.warehouseId} onChange={handleChange} required>
+                                <select
+                                    className="form-select"
+                                    id="warehouseId"
+                                    value={formData.warehouseId}
+                                    onChange={handleChange}
+                                    required
+                                    disabled={!isAdmin && !isGeneralManager}
+                                >
                                     <option value="">Select Warehouse</option>
                                     {warehouses.map(w => (
                                         <option key={w.warehouseID} value={w.warehouseID}>{w.name}</option>
@@ -119,7 +136,7 @@ const AddAdjust = () => {
                                 <textarea className="form-control" id="reason" value={formData.reason} onChange={handleChange} rows="3" placeholder="Enter reason for adjustment" required></textarea>
                             </div>
                             <button type="submit" className="btn btn-primary me-2">Save</button>
-                            <Link to="/adjust" className="btn btn-secondary">Back</Link>
+                            <Link to="/adjustment" className="btn btn-secondary">Back</Link>
                         </form>
                     </div>
                 </div>

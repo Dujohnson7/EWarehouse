@@ -62,7 +62,7 @@ const AddWarehouse = () => {
             };
 
             await warehouseService.createWarehouse(warehouseData, 1);
-            navigate('/warehouse');
+            navigate('/warehouses');
         } catch (error) {
             console.error("Failed to create warehouse", error);
             alert("Failed to create warehouse");
@@ -156,7 +156,7 @@ const AddWarehouse = () => {
                             </div>
 
                             <button type="submit" className="btn btn-primary me-2">Save</button>
-                            <Link to="/warehouse" className="btn btn-secondary">Back</Link>
+                            <Link to="/warehouses" className="btn btn-secondary">Back</Link>
 
                         </form>
                     </div>

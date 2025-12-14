@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import TablePagination from '../components/TablePagination';
 import stockMovementService from '../services/stockMovementService';
+import authService from '../services/authService';
 
 const StockMovements = () => {
-    // State
     const [movements, setMovements] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedType, setSelectedType] = useState('All');
@@ -11,7 +11,6 @@ const StockMovements = () => {
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [loading, setLoading] = useState(true);
 
-    // Fetch Data
     useEffect(() => {
         const fetchMovements = async () => {
             try {
@@ -26,9 +25,19 @@ const StockMovements = () => {
         fetchMovements();
     }, []);
 
-    // Logic
+    // Permissions
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
+
     const filteredMovements = movements.filter(mov => {
-        // Safe access in case of nulls
+        // Warehouse Filtering
+        if (!isAdmin && !isGeneralManager && userWarehouseId) {
+            if (mov.warehouseID !== parseInt(userWarehouseId)) {
+                return false;
+            }
+        }
+
         const productName = mov.productName || mov.product?.productName || '';
         const warehouseName = mov.warehouseName || mov.warehouse?.name || '';
         const userName = mov.userName || mov.user?.fullName || '';
@@ -48,7 +57,6 @@ const StockMovements = () => {
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    // Get unique types
     const types = ['All', 'IN', 'OUT', 'ADJUST', 'TRANSFER_IN', 'TRANSFER_OUT'];
 
     const getTypeBadgeClass = (type) => {
@@ -133,7 +141,7 @@ const StockMovements = () => {
                                                 </td>
                                                 <td><span className="usr-quantity">{mov.quantity}</span></td>
                                                 <td><span className="usr-reason">{mov.remarks}</span></td>
-                                                <td><span className="usr-date">{new Date(mov.movementDate).toLocaleDateString()}</span></td>
+                                                <td><span className="usr-date">{new Date(mov.createdAt).toLocaleDateString()}</span></td>
                                             </tr>
                                         ))
                                     ) : (

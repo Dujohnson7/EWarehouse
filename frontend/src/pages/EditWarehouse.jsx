@@ -7,7 +7,6 @@ const EditWarehouse = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    // Cascading Dropdown Data
     const districtData = {
         "KIGALI": ["Gasabo", "Nyarugenge", "Kicukiro"],
         "NORTH": ["Burera", "Gakenke", "Gicumbi", "Musanze", "Rulindo"],
@@ -40,13 +39,11 @@ const EditWarehouse = () => {
                 setManagers(users);
 
                 if (warehouse) {
-                    // Try to parse location: Province, District, Address
                     const parts = warehouse.location ? warehouse.location.split(', ') : [];
                     const prov = parts.length > 0 ? parts[0] : '';
                     const dist = parts.length > 1 ? parts[1] : '';
                     const addr = parts.length > 2 ? parts.slice(2).join(', ') : warehouse.location;
 
-                    // Check if parsed province exists in our data, else put everything in address
                     const isKnownProvince = Object.keys(districtData).includes(prov);
 
                     setFormData({
@@ -107,7 +104,7 @@ const EditWarehouse = () => {
             };
 
             await warehouseService.updateWarehouse(id, warehouseData, 1);
-            navigate('/warehouse');
+            navigate('/warehouses');
         } catch (error) {
             console.error("Failed to update warehouse", error);
             alert("Failed to update warehouse");
@@ -213,7 +210,7 @@ const EditWarehouse = () => {
                             </div>
 
                             <button type="submit" className="btn btn-primary me-2">Update</button>
-                            <Link to="/warehouse" className="btn btn-secondary">Back</Link>
+                            <Link to="/warehouses" className="btn btn-secondary">Back</Link>
 
                         </form>
                     </div>

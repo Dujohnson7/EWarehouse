@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import zoneService from '../services/zoneService';
 import warehouseService from '../services/warehouseService';
+import authService from '../services/authService';
 
 const AddZone = () => {
     const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
     const [formData, setFormData] = useState({
         zoneName: '',
         warehouseID: '',
@@ -17,12 +21,16 @@ const AddZone = () => {
             try {
                 const data = await warehouseService.getAllWarehouses();
                 setWarehouses(data);
+
+                if (!isAdmin && !isGeneralManager && userWarehouseId) {
+                    setFormData(prev => ({ ...prev, warehouseID: userWarehouseId.toString() }));
+                }
             } catch (error) {
                 console.error("Failed to load warehouses", error);
             }
         };
         fetchWarehouses();
-    }, []);
+    }, [isAdmin, isGeneralManager, userWarehouseId]);
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -36,7 +44,7 @@ const AddZone = () => {
                 zoneName: formData.zoneName,
                 warehouseID: parseInt(formData.warehouseID)
             };
- 
+
             await zoneService.createZone(zoneData, 1);
             navigate('/zone');
         } catch (error) {
@@ -58,13 +66,13 @@ const AddZone = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="warehouseID" className="form-label">Warehouse</label>
-                                <select className="form-select" id="warehouseID" value={formData.warehouseID} onChange={handleChange} required>
+                                <select className="form-select" id="warehouseID" value={formData.warehouseID} onChange={handleChange} required disabled={!isAdmin && !isGeneralManager}>
                                     <option value="">Select Warehouse</option>
                                     {warehouses.map(wh => (
                                         <option key={wh.warehouseID} value={wh.warehouseID}>{wh.name}</option>
                                     ))}
                                 </select>
-                            </div> 
+                            </div>
                             <button type="submit" className="btn btn-primary me-2">Save</button>
                             <Link to="/zone" className="btn btn-secondary">Back</Link>
                         </form>

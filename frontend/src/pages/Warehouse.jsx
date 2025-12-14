@@ -40,7 +40,6 @@ const Warehouse = () => {
         }
     };
 
-    // Filter and Pagination
     const filteredWarehouses = warehouses.filter(warehouse => {
         const name = warehouse.name || '';
         const location = warehouse.location || '';
@@ -92,7 +91,7 @@ const Warehouse = () => {
                             </div>
                             <div className="col-md-4 col-xl-6 text-end d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
                                 <PermissionGate type="insert">
-                                    <Link to="/warehouse/add" className="btn btn-primary d-flex align-items-center">
+                                    <Link to="/warehouses/add" className="btn btn-primary d-flex align-items-center">
                                         <i className="ti ti-plus text-white me-1 fs-5"></i> Add Warehouse
                                     </Link>
                                 </PermissionGate>
@@ -139,7 +138,7 @@ const Warehouse = () => {
                                                 <td>
                                                     <div className="action-btn">
                                                         <PermissionGate type="update">
-                                                            <Link to={`/warehouse/edit/${warehouse.warehouseID}`} className="text-primary edit">
+                                                            <Link to={`/warehouses/edit/${warehouse.warehouseID}`} className="text-primary edit">
                                                                 <i className="ti ti-edit fs-5"></i>
                                                             </Link>
                                                         </PermissionGate>

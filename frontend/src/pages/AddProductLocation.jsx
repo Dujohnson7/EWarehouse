@@ -4,6 +4,8 @@ import productLocationService from '../services/productLocationService';
 import productService from '../services/productService';
 import binService from '../services/binService';
 
+import authService from '../services/authService';
+
 const AddProductLocation = () => {
     const navigate = useNavigate();
 
@@ -23,7 +25,17 @@ const AddProductLocation = () => {
                     binService.getAllBins()
                 ]);
                 setProducts(productsData);
-                setBins(binsData);
+
+                const isAdmin = authService.isAdmin();
+                const isGeneralManager = authService.getUserRole() === 'General_Manager';
+                const userWarehouseId = authService.getUserWarehouse();
+
+                if (!isAdmin && !isGeneralManager && userWarehouseId) {
+                    const filtered = binsData.filter(b => b.warehouseID === parseInt(userWarehouseId));
+                    setBins(filtered);
+                } else {
+                    setBins(binsData);
+                }
             } catch (error) {
                 console.error("Failed to load data", error);
             }
@@ -49,7 +61,7 @@ const AddProductLocation = () => {
             };
 
             await productLocationService.createLocation(locationData);
-            navigate('/product-locations');
+            navigate('/product-location');
         } catch (error) {
             console.error("Failed to create product location", error);
             alert("Failed to create product location");
@@ -86,7 +98,7 @@ const AddProductLocation = () => {
                                 <input type="number" className="form-control" id="quantity" value={formData.quantity} onChange={handleChange} min="0" required />
                             </div>
                             <button type="submit" className="btn btn-primary me-2">Save</button>
-                            <Link to="/product-locations" className="btn btn-secondary">Back</Link>
+                            <Link to="/product-location" className="btn btn-secondary">Back</Link>
                         </form>
                     </div>
                 </div>

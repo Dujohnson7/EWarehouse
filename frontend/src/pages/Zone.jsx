@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TablePagination from '../components/TablePagination';
 import zoneService from '../services/zoneService';
+import authService from '../services/authService';
 
 const Zone = () => {
-    // State
     const [zones, setZones] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedStatus, setSelectedStatus] = useState('All');
@@ -12,7 +12,6 @@ const Zone = () => {
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [loading, setLoading] = useState(true);
 
-    // Fetch Data
     useEffect(() => {
         loadZones();
     }, []);
@@ -31,7 +30,7 @@ const Zone = () => {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this zone?')) {
             try {
-                await zoneService.deleteZone(id, 1);  
+                await zoneService.deleteZone(id, 1);
                 loadZones();
             } catch (error) {
                 console.error("Failed to delete zone", error);
@@ -40,8 +39,18 @@ const Zone = () => {
         }
     };
 
-    // Logic
     const filteredZones = zones.filter(zone => {
+        // Warehouse Filtering
+        const isAdmin = authService.isAdmin();
+        const isGeneralManager = authService.getUserRole() === 'General_Manager';
+        const userWarehouseId = authService.getUserWarehouse();
+
+        if (!isAdmin && !isGeneralManager && userWarehouseId) {
+            if (zone.warehouseID !== parseInt(userWarehouseId)) {
+                return false;
+            }
+        }
+
         const matchesSearch = zone.zoneName.toLowerCase().includes(searchTerm.toLowerCase()) ||
             (zone.description && zone.description.toLowerCase().includes(searchTerm.toLowerCase()));
 
@@ -57,7 +66,6 @@ const Zone = () => {
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    // Get unique statuses
     const statuses = ['All', 'Active', 'Inactive'];
 
     return (
@@ -107,7 +115,7 @@ const Zone = () => {
                                     <tr>
                                         <th>Zone ID</th>
                                         <th>Zone Name</th>
-                                        <th>Warehouse</th> 
+                                        <th>Warehouse</th>
                                         <th>Status</th>
                                         <th>Created Date</th>
                                         <th>Action</th>
@@ -129,7 +137,7 @@ const Zone = () => {
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td><span className="usr-warehouse">{zone.warehouse ? zone.warehouse.name : 'N/A'}</span></td> 
+                                                <td><span className="usr-warehouse">{zone.warehouse ? zone.warehouse.name : 'N/A'}</span></td>
                                                 <td>
                                                     <span className={`badge bg-${zone.isActive ? 'success' : 'danger'}-subtle text-${zone.isActive ? 'success' : 'danger'}`}>
                                                         {zone.isActive ? 'Active' : 'Inactive'}

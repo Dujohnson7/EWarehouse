@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import TablePagination from '../components/TablePagination';
 import alertService from '../services/alertService';
-import productService from '../services/productService'; // Assuming we need to resolve product names if not in DTO
-
-const Alerts = () => {
-    // State
+import productService from '../services/productService'; 
+const Alerts = () => { 
     const [alerts, setAlerts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedType, setSelectedType] = useState('All');
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [loading, setLoading] = useState(true);
-
-    // Fetch Data
+ 
     useEffect(() => {
         loadAlerts();
     }, []);
 
     const loadAlerts = async () => {
         try {
-            const data = await alertService.getAllAlerts();
-            // If the alert DTO doesn't contain product names, we might need to fetch them or assume they are included.
-            // For now assuming the backend DTO returns 'productName' or we display the ID/Message.
-            // Based on previous patterns, let's just set the data.
+            const data = await alertService.getAllAlerts(); 
             setAlerts(data);
         } catch (error) {
             console.error("Failed to load alerts", error);
@@ -32,14 +26,12 @@ const Alerts = () => {
     };
 
     const handleAcknowledge = async (id) => {
-        try {
-            // Fetch the specific alert to get its full data for update
+        try { 
             const alertToUpdate = await alertService.getAlertById(id);
             if (alertToUpdate) {
                 const updatedAlert = { ...alertToUpdate, isAcknowledged: true };
-                await alertService.updateAlert(id, updatedAlert, 1); // Hardcoded UserID 1
-
-                // Update local state
+                await alertService.updateAlert(id, updatedAlert, 1);  
+ 
                 setAlerts(prev => prev.map(a => a.alertID === id ? { ...a, isAcknowledged: true } : a));
             }
         } catch (error) {
@@ -59,8 +51,7 @@ const Alerts = () => {
             }
         }
     }
-
-    // Logic
+ 
     const filteredAlerts = alerts.filter(alert => {
         const matchesSearch = (alert.productID && String(alert.productID).includes(searchTerm)) ||
             (alert.alertMessage && alert.alertMessage.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -75,8 +66,7 @@ const Alerts = () => {
     const currentItems = filteredAlerts.slice(indexOfFirstItem, indexOfLastItem);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    // Get unique types
+ 
     const types = ['All', ...new Set(alerts.map(a => a.alertType))];
 
     return (

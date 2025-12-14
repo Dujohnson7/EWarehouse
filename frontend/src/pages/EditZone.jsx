@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import zoneService from '../services/zoneService';
 import warehouseService from '../services/warehouseService';
+import authService from '../services/authService';
 
 const EditZone = () => {
     const { id } = useParams();
@@ -9,10 +10,13 @@ const EditZone = () => {
     const [warehouses, setWarehouses] = useState([]);
     const [formData, setFormData] = useState({
         zoneName: '',
-        warehouseID: '', 
+        warehouseID: '',
         isActive: true
     });
     const [loading, setLoading] = useState(true);
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,7 +31,7 @@ const EditZone = () => {
                 if (zone) {
                     setFormData({
                         zoneName: zone.zoneName,
-                        warehouseID: zone.warehouseID, 
+                        warehouseID: zone.warehouseID,
                         isActive: zone.isActive
                     });
                 }
@@ -89,13 +93,13 @@ const EditZone = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="warehouseID" className="form-label">Warehouse</label>
-                                <select className="form-select" id="warehouseID" value={formData.warehouseID} onChange={handleChange} required>
+                                <select className="form-select" id="warehouseID" value={formData.warehouseID} onChange={handleChange} required disabled={!isAdmin && !isGeneralManager}>
                                     <option value="">Select Warehouse</option>
                                     {warehouses.map(wh => (
                                         <option key={wh.warehouseID} value={wh.warehouseID}>{wh.name}</option>
                                     ))}
                                 </select>
-                            </div> 
+                            </div>
                             <div className="mb-3 form-check">
                                 <input
                                     type="checkbox"

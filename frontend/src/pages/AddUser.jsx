@@ -2,16 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import userService from '../services/userService';
 import warehouseService from '../services/warehouseService';
+import authService from '../services/authService';
 
 const AddUser = () => {
     const navigate = useNavigate();
 
     const [warehouses, setWarehouses] = useState([]);
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
         role: '',
-        passwordInfo: '',
+        password: '',
         warehouseID: '',
         isActive: true
     });
@@ -21,12 +25,16 @@ const AddUser = () => {
             try {
                 const data = await warehouseService.getAllWarehouses();
                 setWarehouses(data);
+
+                if (!isAdmin && !isGeneralManager && userWarehouseId) {
+                    setFormData(prev => ({ ...prev, warehouseID: userWarehouseId.toString() }));
+                }
             } catch (error) {
                 console.error("Failed to load warehouses", error);
             }
         };
         fetchWarehouses();
-    }, []);
+    }, [isAdmin, isGeneralManager, userWarehouseId]);
 
     const handleChange = (e) => {
         const { id, value, type, checked } = e.target;
@@ -44,7 +52,7 @@ const AddUser = () => {
                 fullName: formData.fullName,
                 email: formData.email,
                 role: formData.role,
-                passwordInfo: formData.passwordInfo,
+                password: formData.password,
                 warehouseID: formData.warehouseID ? parseInt(formData.warehouseID) : null,
                 isActive: formData.isActive
             };
@@ -74,7 +82,7 @@ const AddUser = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="warehouseID" className="form-label">Warehouse (Optional)</label>
-                                <select className="form-select" id="warehouseID" value={formData.warehouseID} onChange={handleChange}>
+                                <select className="form-select" id="warehouseID" value={formData.warehouseID} onChange={handleChange} disabled={!isAdmin && !isGeneralManager}>
                                     <option value="">Select Warehouse</option>
                                     {warehouses.map(wh => (
                                         <option key={wh.warehouseID} value={wh.warehouseID}>{wh.name}</option>
@@ -92,8 +100,8 @@ const AddUser = () => {
                                 </select>
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="passwordInfo" className="form-label">Password</label>
-                                <input type="password" className="form-control" id="passwordInfo" placeholder="Enter password" value={formData.passwordInfo} onChange={handleChange} required />
+                                <label htmlFor="password" className="form-label">Password</label>
+                                <input type="password" className="form-control" id="password" placeholder="Enter password" value={formData.password} onChange={handleChange} required />
                             </div>
                             <div className="mb-3 form-check">
                                 <input type="checkbox" className="form-check-input" id="isActive" checked={formData.isActive} onChange={handleChange} />

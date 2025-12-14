@@ -71,8 +71,7 @@ const EditProduct = () => {
                 categoryID: parseInt(formData.categoryID),
                 price: parseFloat(formData.price)
             };
-
-            // Hardcoded UserID 1
+ 
             await productService.updateProduct(id, productData, 1);
             navigate('/products');
         } catch (error) {

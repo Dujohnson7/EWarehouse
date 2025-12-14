@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import binService from '../services/binService';
 import warehouseService from '../services/warehouseService';
 import zoneService from '../services/zoneService';
+import authService from '../services/authService';
 
 const AddBin = () => {
     const navigate = useNavigate();
@@ -10,6 +11,9 @@ const AddBin = () => {
     const [warehouses, setWarehouses] = useState([]);
     const [allZones, setAllZones] = useState([]);
     const [filteredZones, setFilteredZones] = useState([]);
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
 
     const [formData, setFormData] = useState({
         binCode: '',
@@ -28,12 +32,18 @@ const AddBin = () => {
                 ]);
                 setWarehouses(warehousesData);
                 setAllZones(zonesData);
+
+                if (!isAdmin && !isGeneralManager && userWarehouseId) {
+                    setFormData(prev => ({ ...prev, warehouseId: userWarehouseId.toString() }));
+                    const filtered = zonesData.filter(z => z.warehouseID === parseInt(userWarehouseId));
+                    setFilteredZones(filtered);
+                }
             } catch (error) {
                 console.error("Failed to load data", error);
             }
         };
         fetchData();
-    }, []);
+    }, [isAdmin, isGeneralManager, userWarehouseId]);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -72,7 +82,7 @@ const AddBin = () => {
     return (
         <div className="card">
             <div className="card-body">
-                <h5 className="card-title fw-semibold mb-4">Add New Bin</h5>
+                <h5 className="card-title color- fw-semibold mb-4">Add New Bin</h5>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
                         <label htmlFor="binCode" className="form-label">Bin Code</label>
@@ -95,6 +105,7 @@ const AddBin = () => {
                             value={formData.warehouseId}
                             onChange={handleChange}
                             required
+                            disabled={!isAdmin && !isGeneralManager}
                         >
                             <option value="">Select Warehouse</option>
                             {warehouses.map(wh => (

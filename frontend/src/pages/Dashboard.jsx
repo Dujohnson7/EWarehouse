@@ -4,6 +4,7 @@ import productService from '../services/productService';
 import stockMovementService from '../services/stockMovementService';
 import alertService from '../services/alertService';
 import stockStatusService from '../services/stockStatusService';
+import authService from '../services/authService';
 
 const Dashboard = () => {
     const [loading, setLoading] = useState(true);
@@ -27,14 +28,39 @@ const Dashboard = () => {
                     productService.getAllProducts(),
                     stockMovementService.getAllMovements(),
                     alertService.getAllAlerts(),
-                    stockStatusService.getAllStockStatuses() 
+                    stockStatusService.getAllStockStatuses()
                 ]);
 
-                const totalProducts = products.length;
-                const totalStockValue = products.reduce((sum, p) => sum + ((p.price || 0) * (p.quantity || 0)), 0);
+                // Permission Check
+                const isAdmin = authService.isAdmin();
+                const isGeneralManager = authService.getUserRole() === 'General_Manager';
+                const userWarehouseId = authService.getUserWarehouse();
 
-                const imports = movements.filter(m => m.movementType === 'IN');
-                const exports = movements.filter(m => m.movementType === 'OUT');
+                let filteredMovements = movements;
+                let filteredStockStatus = stockStatus;
+                let filteredAlerts = alerts;
+
+                if (!isAdmin && !isGeneralManager && userWarehouseId) {
+                    const whId = parseInt(userWarehouseId);
+                    filteredMovements = movements.filter(m => m.warehouseID === whId);
+                    filteredStockStatus = stockStatus.filter(s => s.warehouseID === whId);
+                    // Alerts DTO has WarehouseID nullable
+                    filteredAlerts = alerts.filter(a => a.warehouseID === whId);
+                }
+
+                const totalProducts = products.length; // Products are global catalogue, count remains same? Or filter by stock? 
+                // Usually dashboard shows Total Products in Catalogue. Let's keep it global or filter if needed.
+                // Request said "on dashboard display according warehouseid". 
+                // Let's assume Total Products means "Products I have stock of" or "Products available to me".
+                // But Product definition is global. Let's stick to global count for products, but stock value based on local stock.
+
+                const totalStockValue = filteredStockStatus.reduce((sum, s) => {
+                    // We need price from product. StockStatus includes Product object.
+                    return sum + ((s.product?.price || 0) * (s.quantity || 0));
+                }, 0);
+
+                const imports = filteredMovements.filter(m => m.movementType === 'IN');
+                const exports = filteredMovements.filter(m => m.movementType === 'OUT');
 
                 const days = [];
                 const importData = [];
@@ -66,14 +92,22 @@ const Dashboard = () => {
                     { name: "Exports", data: exportData }
                 ]);
 
+                // Calculate stock health
+                const lowStockCount = filteredStockStatus.filter(s => (s.stockLevel === 'Low Stock') || (s.quantity < 10 && s.quantity > 0)).length;
+                const outOfStockCount = filteredStockStatus.filter(s => s.quantity === 0).length;
+
                 setStats({
-                    totalProducts,
+                    totalProducts, // Keeping global catalogue count
                     totalStockValue,
                     totalImports: imports.length,
                     totalExports: exports.length,
-                    products: stockStatus.slice(0, 5),  
-                    alerts: alerts.filter(a => !a.isAcknowledged).slice(0, 5),
-                    movements: movements.slice(0, 5)
+                    lowStockCount,
+                    outOfStockCount,
+                    products: filteredStockStatus.slice(0, 5),
+                    alerts: filteredAlerts.filter(a => !a.isAcknowledged).slice(0, 5),
+                    movements: filteredMovements
+                        .sort((a, b) => new Date(b.createdAt || b.movementDate) - new Date(a.createdAt || a.movementDate))
+                        .slice(0, 5)
                 });
 
             } catch (error) {
@@ -91,7 +125,7 @@ const Dashboard = () => {
         dataLabels: { enabled: false },
         stroke: { curve: 'smooth', width: 2 },
         xaxis: { categories: movementCategories },
-        colors: ["#13deb9", "#fa896b"], 
+        colors: ["#13deb9", "#fa896b"],
         fill: { type: 'gradient', gradient: { shadeIntensity: 0, opacityFrom: 0.5, opacityTo: 0 } },
         grid: { strokeDashArray: 3, borderColor: "#90A4AE50" },
         tooltip: { theme: "dark" }
@@ -164,45 +198,74 @@ const Dashboard = () => {
                 <div className="col-lg-8 d-flex align-items-stretch">
                     <div className="card w-100 overflow-hidden">
                         <div className="card-body pb-0">
-                            <h4 className="fs-4 mb-1 card-title">Stock Overview</h4>
-                            <p className="mb-0 card-subtitle">Recent Stock Status</p>
+                            <h4 className="fs-4 mb-1 card-title">Recent Stock Movements</h4>
+                            <p className="mb-0 card-subtitle">Last 5 transactions</p>
                         </div>
                         <div className="table-responsive products-table" data-simplebar="">
                             <table className="table text-nowrap mb-0 align-middle table-hover">
                                 <thead className="fs-4">
                                     <tr>
-                                        <th className="fs-3 px-4">Product</th>
+                                        <th className="fs-3 px-4">Type</th>
+                                        <th className="fs-3">Product</th>
                                         <th className="fs-3">Quantity</th>
-                                        <th className="fs-3">Status</th>
+                                        <th className="fs-3">Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {stats.products.map((p, i) => (
+                                    {stats.movements.length > 0 ? stats.movements.map((m, i) => (
                                         <tr key={i}>
                                             <td>
+                                                <span className={`badge rounded-pill fs-2 fw-medium ${m.movementType === 'IN' ? 'bg-success-subtle text-success' :
+                                                    m.movementType === 'OUT' ? 'bg-danger-subtle text-danger' :
+                                                        m.movementType === 'ADJUST' ? 'bg-info-subtle text-info' :
+                                                            'bg-warning-subtle text-warning'
+                                                    }`}>
+                                                    {m.movementType}
+                                                </span>
+                                            </td>
+                                            <td>
                                                 <div className="d-flex align-items-center product">
-                                                    <div className="bg-primary-subtle rounded p-2 me-2">
-                                                        <iconify-icon icon="solar:box-line-duotone" className="fs-4 text-primary"></iconify-icon>
+                                                    <div className={`rounded p-2 me-2 ${m.movementType === 'IN' ? 'bg-success-subtle' :
+                                                        m.movementType === 'OUT' ? 'bg-danger-subtle' :
+                                                            m.movementType === 'ADJUST' ? 'bg-info-subtle' :
+                                                                'bg-warning-subtle'
+                                                        }`}>
+                                                        <iconify-icon icon={
+                                                            m.movementType === 'IN' ? 'solar:import-bold-duotone' :
+                                                                m.movementType === 'OUT' ? 'solar:export-bold-duotone' :
+                                                                    m.movementType === 'ADJUST' ? 'solar:settings-bold-duotone' :
+                                                                        'solar:transfer-horizontal-bold-duotone'
+                                                        } className={`fs-4 ${m.movementType === 'IN' ? 'text-success' :
+                                                            m.movementType === 'OUT' ? 'text-danger' :
+                                                                m.movementType === 'ADJUST' ? 'text-info' :
+                                                                    'text-warning'
+                                                            }`}></iconify-icon>
                                                     </div>
-                                                    <div className="ms-3 product-title">
-                                                        <h6 className="fs-3 mb-0 text-truncate-2">{p.productName}</h6>
-                                                        <span className="text-muted fs-2">{p.categoryName}</span>
+                                                    <div className="ms-2 product-title">
+                                                        <h6 className="fs-3 mb-0">{m.product?.productName || 'Unknown'}</h6>
+                                                        <span className="text-muted fs-2">{m.warehouse?.name || 'N/A'}</span>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td><h5 className="mb-0 fs-4">{p.totalQuantity}</h5></td>
                                             <td>
-                                                <span className={`badge rounded-pill fs-2 fw-medium bg-${p.status === 'In Stock' ? 'success' :
-                                                    p.status === 'Low Stock' ? 'warning' : 'danger'
-                                                    }-subtle text-${p.status === 'In Stock' ? 'success' :
-                                                        p.status === 'Low Stock' ? 'warning' : 'danger'
-                                                    }`}>
-                                                    {p.status}
+                                                <h5 className={`mb-0 fs-4 ${m.movementType === 'OUT' ? 'text-danger' : 'text-success'}`}>
+                                                    {m.movementType === 'OUT' ? '-' : '+'}{m.quantity}
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <span className="text-muted fs-2">
+                                                    {new Date(m.createdAt || m.movementDate).toLocaleDateString('en-US', {
+                                                        month: 'short',
+                                                        day: 'numeric',
+                                                        hour: '2-digit',
+                                                        minute: '2-digit'
+                                                    })}
                                                 </span>
                                             </td>
                                         </tr>
-                                    ))}
-                                    {stats.products.length === 0 && <tr><td colSpan="3" className="text-center">No stock data</td></tr>}
+                                    )) : (
+                                        <tr><td colSpan="4" className="text-center">No recent movements</td></tr>
+                                    )}
                                 </tbody>
                             </table>
                         </div>
@@ -225,14 +288,23 @@ const Dashboard = () => {
                                 </li>
                                 <li className="d-flex align-items-center justify-content-between py-3 border-bottom">
                                     <div className="d-flex align-items-center">
-                                        <div className="rounded-circle-shape bg-danger-subtle me-3 rounded-pill d-inline-flex align-items-center justify-content-center">
-                                            <iconify-icon icon="solar:export-line-duotone" className="fs-7 text-danger"></iconify-icon>
+                                        <div className="rounded-circle-shape bg-warning-subtle me-3 rounded-pill d-inline-flex align-items-center justify-content-center">
+                                            <iconify-icon icon="solar:danger-triangle-line-duotone" className="fs-7 text-warning"></iconify-icon>
                                         </div>
-                                        <div><h6 className="mb-1 fs-3">Total Exports</h6></div>
+                                        <div><h6 className="mb-1 fs-3">Low Stock Items</h6></div>
                                     </div>
-                                    <span className="badge rounded-pill fw-medium fs-2 bg-danger-subtle text-danger">{stats.totalExports}</span>
+                                    <span className="badge rounded-pill fw-medium fs-2 bg-warning-subtle text-warning">{stats.lowStockCount || 0}</span>
                                 </li>
                                 <li className="d-flex align-items-center justify-content-between py-3 border-bottom">
+                                    <div className="d-flex align-items-center">
+                                        <div className="rounded-circle-shape bg-danger-subtle me-3 rounded-pill d-inline-flex align-items-center justify-content-center">
+                                            <iconify-icon icon="solar:forbidden-circle-line-duotone" className="fs-7 text-danger"></iconify-icon>
+                                        </div>
+                                        <div><h6 className="mb-1 fs-3">Out of Stock</h6></div>
+                                    </div>
+                                    <span className="badge rounded-pill fw-medium fs-2 bg-danger-subtle text-danger">{stats.outOfStockCount || 0}</span>
+                                </li>
+                               {/* <li className="d-flex align-items-center justify-content-between py-3 border-bottom">
                                     <div className="d-flex align-items-center">
                                         <div className="rounded-circle-shape bg-warning-subtle me-3 rounded-pill d-inline-flex align-items-center justify-content-center">
                                             <iconify-icon icon="solar:bell-bing-line-duotone" className="fs-7 text-warning"></iconify-icon>
@@ -240,7 +312,7 @@ const Dashboard = () => {
                                         <div><h6 className="mb-1 fs-3">Pending Alerts</h6></div>
                                     </div>
                                     <span className="badge rounded-pill fw-medium fs-2 bg-warning-subtle text-warning">{stats.alerts.length}</span>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>

@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import binService from '../services/binService';
 import warehouseService from '../services/warehouseService';
 import zoneService from '../services/zoneService';
+import authService from '../services/authService';
 
 const EditBin = () => {
     const { id } = useParams();
@@ -20,6 +21,9 @@ const EditBin = () => {
         isActive: true
     });
     const [loading, setLoading] = useState(true);
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,12 +38,10 @@ const EditBin = () => {
                 setAllZones(zonesData);
 
                 if (bin) {
-                    // Handle both camelCase and PascalCase from backend
                     const zoneID = bin.zoneID || bin.ZoneID;
                     const zone = zonesData.find(z => z.zoneID === zoneID);
                     const warehouseId = zone ? zone.warehouseID : '';
 
-                    // Filter zones for this warehouse
                     const zonesForWarehouse = zonesData.filter(z => z.warehouseID === warehouseId);
                     setFilteredZones(zonesForWarehouse);
 
@@ -110,7 +112,7 @@ const EditBin = () => {
                             id="binCode"
                             name="binCode"
                             value={formData.binCode}
-                            readOnly // ID cannot be changed usually
+                            readOnly
                             disabled
                         />
                     </div>
@@ -123,6 +125,7 @@ const EditBin = () => {
                             value={formData.warehouseId}
                             onChange={handleChange}
                             required
+                            disabled={!isAdmin && !isGeneralManager}
                         >
                             <option value="">Select Warehouse</option>
                             {warehouses.map(wh => (

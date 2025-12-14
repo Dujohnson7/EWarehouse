@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import TablePagination from '../components/TablePagination';
 import stockStatusService from '../services/stockStatusService';
+import authService from '../services/authService';
 
 const Stock = () => {
-    // State
     const [stocks, setStocks] = useState([]);
     const [statusFilter, setStatusFilter] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
@@ -11,7 +11,6 @@ const Stock = () => {
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [loading, setLoading] = useState(true);
 
-    // Fetch Data
     useEffect(() => {
         const fetchStockStatus = async () => {
             try {
@@ -26,11 +25,22 @@ const Stock = () => {
         fetchStockStatus();
     }, []);
 
-    // Logic
+    // Permissions
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
+
     const filteredProducts = stocks.filter(p => {
-        const status = p.status || '';  
-        const productName = p.productName || '';
-        const category = p.categoryName || '';
+        // Warehouse Filtering
+        if (!isAdmin && !isGeneralManager && userWarehouseId) {
+            if (p.warehouseID !== parseInt(userWarehouseId)) {
+                return false;
+            }
+        }
+
+        const status = p.stockLevel || '';
+        const productName = p.product?.productName || '';
+        const category = p.product?.categoryName || '';
 
         const matchesStatus = statusFilter ? status === statusFilter : true;
         const matchesSearch = productName.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -100,8 +110,7 @@ const Stock = () => {
                                 <thead className="header-item">
                                     <tr>
                                         <th>Product ID</th>
-                                        <th>Product Name</th>
-                                        <th>Category</th>
+                                        <th>Product Name</th> 
                                         <th>Total Quantity</th>
                                         <th>Stock Status</th>
                                     </tr>
@@ -121,8 +130,7 @@ const Stock = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </td>
-                                                <td><span className="usr-product-category">{product.product.categoryName}</span></td>
+                                                </td> 
                                                 <td><span className="usr-product-quantity">{product.quantity}</span></td>
                                                 <td>
                                                     <span className={`badge ${getStatusBadgeClass(product.stockLevel)}`}>{product.stockLevel}</span>

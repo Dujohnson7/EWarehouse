@@ -4,6 +4,7 @@ import stockMovementService from '../services/stockMovementService';
 import productService from '../services/productService';
 import warehouseService from '../services/warehouseService';
 import binService from '../services/binService';
+import authService from '../services/authService';
 
 const AddTransferOut = () => {
     const navigate = useNavigate();
@@ -11,13 +12,17 @@ const AddTransferOut = () => {
     const [warehouses, setWarehouses] = useState([]);
     const [bins, setBins] = useState([]);
     const [filteredBins, setFilteredBins] = useState([]);
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
     const [formData, setFormData] = useState({
         productId: '',
         quantity: '',
         fromWarehouseId: '',
+        toWarehouseId: '',
         fromBinId: '',
         transferCode: '',
-        remarks: ''
+        reason: ''
     });
 
     useEffect(() => {
@@ -32,22 +37,25 @@ const AddTransferOut = () => {
                 setWarehouses(warehousesData);
                 setBins(binsData);
 
-                // Auto-generate transfer code
-                const timestamp = Date.now();
+                const timestamp = Math.floor(Date.now() / 1000);
                 setFormData(prev => ({ ...prev, transferCode: `TRF-${timestamp}` }));
+
+                if (!isAdmin && !isGeneralManager && userWarehouseId) {
+                    setFormData(prev => ({ ...prev, fromWarehouseId: userWarehouseId }));
+                    const filtered = binsData.filter(b => b.warehouseID === parseInt(userWarehouseId));
+                    setFilteredBins(filtered);
+                }
             } catch (error) {
                 console.error("Failed to load dropdown data", error);
             }
         };
         fetchData();
-    }, []);
+    }, [isAdmin, isGeneralManager, userWarehouseId]);
 
-    // Filter bins when warehouse changes
     useEffect(() => {
         if (formData.fromWarehouseId) {
             const filtered = bins.filter(bin => bin.warehouseID === parseInt(formData.fromWarehouseId));
             setFilteredBins(filtered);
-            // Reset bin selection if current bin not in filtered list
             if (formData.fromBinId && !filtered.find(b => b.binCode === formData.fromBinId)) {
                 setFormData(prev => ({ ...prev, fromBinId: '' }));
             }
@@ -66,12 +74,13 @@ const AddTransferOut = () => {
         e.preventDefault();
         try {
             const transferData = {
-                productId: parseInt(formData.productId),
+                productID: parseInt(formData.productId),
                 quantity: parseInt(formData.quantity),
-                warehouseId: parseInt(formData.fromWarehouseId),
-                fromBinId: formData.fromBinId,
-                transferCode: formData.transferCode,
-                remarks: formData.remarks
+                warehouseID_OUT: parseInt(formData.fromWarehouseId),
+                warehouseID_IN: parseInt(formData.toWarehouseId),
+                fromBinID: formData.fromBinId,
+                transferCode: parseInt(formData.transferCode.replace('TRF-', '')),
+                reason: formData.reason || null
             };
 
             await stockMovementService.createTransferOut(transferData);
@@ -104,7 +113,14 @@ const AddTransferOut = () => {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="fromWarehouseId" className="form-label">From Warehouse</label>
-                                <select className="form-select" id="fromWarehouseId" value={formData.fromWarehouseId} onChange={handleChange} required>
+                                <select
+                                    className="form-select"
+                                    id="fromWarehouseId"
+                                    value={formData.fromWarehouseId}
+                                    onChange={handleChange}
+                                    required
+                                    disabled={!isAdmin && !isGeneralManager}
+                                >
                                     <option value="">Select Warehouse</option>
                                     {warehouses.map(w => (
                                         <option key={w.warehouseID} value={w.warehouseID}>{w.name}</option>
@@ -121,12 +137,21 @@ const AddTransferOut = () => {
                                 </select>
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="transferCode" className="form-label">Transfer Code</label>
-                                <input type="text" className="form-control" id="transferCode" value={formData.transferCode} onChange={handleChange} placeholder="Auto-generated" required />
+                                <label htmlFor="toWarehouseId" className="form-label">To Warehouse</label>
+                                <select className="form-select" id="toWarehouseId" value={formData.toWarehouseId} onChange={handleChange} required>
+                                    <option value="">Select Destination Warehouse</option>
+                                    {warehouses.map(w => (
+                                        <option key={w.warehouseID} value={w.warehouseID}>{w.name}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="remarks" className="form-label">Remarks</label>
-                                <textarea className="form-control" id="remarks" value={formData.remarks} onChange={handleChange} rows="3" placeholder="Enter notes"></textarea>
+                                <label htmlFor="transferCode" className="form-label">Transfer Code</label>
+                                <input type="text" className="form-control" id="transferCode" value={formData.transferCode} readOnly disabled />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="reason" className="form-label">Reason</label>
+                                <textarea className="form-control" id="reason" value={formData.reason} onChange={handleChange} rows="3" placeholder="Enter reason"></textarea>
                             </div>
                             <button type="submit" className="btn btn-primary me-2">Save</button>
                             <Link to="/transfer-out" className="btn btn-secondary">Back</Link>

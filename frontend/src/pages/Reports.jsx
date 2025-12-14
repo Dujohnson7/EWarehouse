@@ -5,6 +5,7 @@ import warehouseService from '../services/warehouseService';
 import stockStatusService from '../services/stockStatusService';
 import zoneService from '../services/zoneService';
 import userService from '../services/userService';
+import authService from '../services/authService';
 
 const Reports = () => {
     const [reportType, setReportType] = useState('');
@@ -16,7 +17,6 @@ const Reports = () => {
     const [warehouses, setWarehouses] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    // Stats for summary cards
     const [stats, setStats] = useState({
         totalItems: 0,
         totalWarehouses: 0,
@@ -33,7 +33,18 @@ const Reports = () => {
                     userService.getAllUsers(),
                     productService.getAllProducts()
                 ]);
-                setWarehouses(warehousesData);
+ 
+                const isAdmin = authService.isAdmin();
+                const isGeneralManager = authService.getUserRole() === 'General_Manager';
+                const userWarehouseId = authService.getUserWarehouse();
+
+                let availableWarehouses = warehousesData;
+                if (!isAdmin && !isGeneralManager && userWarehouseId) {
+                    availableWarehouses = warehousesData.filter(w => w.warehouseID === parseInt(userWarehouseId));
+                    setWarehouse(availableWarehouses[0]?.name || 'All Warehouses');
+                }
+
+                setWarehouses(availableWarehouses);
                 setStats({
                     totalItems: productsData.length,
                     totalWarehouses: warehousesData.length,
@@ -59,8 +70,21 @@ const Reports = () => {
 
             switch (reportType) {
                 case 'Stock Movement':
-                    const movements = await stockMovementService.getAllMovements();
-                    data = movements.filter(m => {
+                    const movements = await stockMovementService.getAllMovements(); 
+                    let filteredMovements = movements;
+                    const isAdmin = authService.isAdmin();
+                    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+                    const userWarehouseId = authService.getUserWarehouse();
+
+                    if (!isAdmin && !isGeneralManager && userWarehouseId) {
+                        filteredMovements = movements.filter(m => m.warehouseID === parseInt(userWarehouseId));
+                    }
+
+                    data = filteredMovements.filter(m => {
+                        if (warehouse !== 'All Warehouses') {
+                            if (m.warehouse?.name !== warehouse) return false;
+                        }
+
                         if (!dateFrom && !dateTo) return true;
                         const movDate = new Date(m.createdAt || m.movementDate);
                         const from = dateFrom ? new Date(dateFrom) : new Date('1900-01-01');
@@ -74,7 +98,20 @@ const Reports = () => {
                     break;
                 case 'Warehouse Summary':
                     const stockStatus = await stockStatusService.getAllStockStatuses();
-                    data = stockStatus;
+                    // Filter by permission
+                    let filteredStatus = stockStatus;
+                    const isAdminUser = authService.isAdmin();
+                    const isGM = authService.getUserRole() === 'General_Manager';
+                    const userWhId = authService.getUserWarehouse();
+
+                    if (!isAdminUser && !isGM && userWhId) {
+                        filteredStatus = stockStatus.filter(s => s.warehouseID === parseInt(userWhId));
+                    }
+
+                    data = filteredStatus;
+                    if (warehouse !== 'All Warehouses') {
+                        data = data.filter(s => s.warehouse?.name === warehouse);
+                    }
                     break;
                 default:
                     data = [];
@@ -90,12 +127,10 @@ const Reports = () => {
         }
     };
 
-    // Helper function to export to CSV
     const exportToCSV = (data, filename) => {
         let csvContent = 'Report Type,Date From,Date To,Warehouse\n';
         csvContent += `${data.type},${data.dateFrom || 'N/A'},${data.dateTo || 'N/A'},${data.warehouse || 'All'}\n\n`;
 
-        // Add headers based on report type
         if (reportType === 'Stock Movement') {
             csvContent += 'Movement ID,Product,Type,Quantity,User,Date\n';
             reportData.forEach(item => {
@@ -124,13 +159,10 @@ const Reports = () => {
         document.body.removeChild(link);
     };
 
-    // Helper function to export to Excel
     const exportToExcel = (data, filename) => {
-        // Same as CSV for simplicity
         exportToCSV(data, filename.replace('.xlsx', ''));
     };
 
-    // Helper function to export to PDF
     const exportToPDF = (data, filename) => {
         const printWindow = window.open('', '_blank');
         printWindow.document.write('<html><head><title>' + filename + '</title>');
@@ -144,7 +176,6 @@ const Reports = () => {
         printWindow.document.write('<p><strong>Total Records:</strong> ' + reportData.length + '</p>');
         printWindow.document.write('<table>');
 
-        // Add headers based on report type
         if (reportType === 'Stock Movement') {
             printWindow.document.write('<tr><th>Movement ID</th><th>Product</th><th>Type</th><th>Quantity</th><th>User</th><th>Date</th></tr>');
             reportData.forEach(item => {
@@ -308,7 +339,7 @@ const Reports = () => {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="reportWarehouse" className="form-label">Warehouse (Optional)</label>
-                                        <select className="form-select" id="reportWarehouse" value={warehouse} onChange={(e) => setWarehouse(e.target.value)}>
+                                        <select className="form-select" id="reportWarehouse" value={warehouse} onChange={(e) => setWarehouse(e.target.value)} disabled={!authService.isAdmin() && authService.getUserRole() !== 'General_Manager'}>
                                             <option>All Warehouses</option>
                                             {warehouses.map(wh => (
                                                 <option key={wh.warehouseID} value={wh.name}>{wh.name}</option>

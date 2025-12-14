@@ -79,6 +79,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EWarehouse.Controllers.AlertsController",
+    "Method": "GenerateAutomaticAlerts",
+    "RelativePath": "api/Alerts/generate-automatic",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EWarehouse.Controllers.AuditLogController",
     "Method": "GetAll",
     "RelativePath": "api/AuditLog",

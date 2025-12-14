@@ -131,6 +131,18 @@
         }
       }
     },
+    "/api/Alerts/generate-automatic": {
+      "post": {
+        "tags": [
+          "Alerts"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/AuditLog": {
       "get": {
         "tags": [

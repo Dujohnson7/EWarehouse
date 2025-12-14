@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TablePagination from '../components/TablePagination';
 import categoryService from '../services/categoryService';
+import PermissionGate from '../components/PermissionGate';
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
@@ -90,9 +91,11 @@ const Categories = () => {
                                 </select>
                             </div>
                             <div className="col-md-4 col-xl-6 text-end d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
-                                <Link to="/categories/add" className="btn btn-primary d-flex align-items-center">
-                                    <i className="ti ti-plus text-white me-1 fs-5"></i> Add Category
-                                </Link>
+                                <PermissionGate type="insert">
+                                    <Link to="/categories/add" className="btn btn-primary d-flex align-items-center">
+                                        <i className="ti ti-plus text-white me-1 fs-5"></i> Add Category
+                                    </Link>
+                                </PermissionGate>
                             </div>
                         </div>
                     </div>
@@ -135,12 +138,16 @@ const Categories = () => {
                                                 <td><span className="usr-created-date">{new Date(category.createdAt).toLocaleDateString()}</span></td>
                                                 <td>
                                                     <div className="action-btn">
-                                                        <Link to={`/categories/edit/${category.categoryID}`} className="text-primary edit">
-                                                            <i className="ti ti-edit fs-5"></i>
-                                                        </Link>
-                                                        <a href="#" className="text-dark delete ms-2" onClick={(e) => { e.preventDefault(); handleDelete(category.categoryID); }}>
-                                                            <i className="ti ti-trash fs-5"></i>
-                                                        </a>
+                                                        <PermissionGate type="update">
+                                                            <Link to={`/categories/edit/${category.categoryID}`} className="text-primary edit">
+                                                                <i className="ti ti-edit fs-5"></i>
+                                                            </Link>
+                                                        </PermissionGate>
+                                                        <PermissionGate type="delete">
+                                                            <a href="#" className="text-dark delete ms-2" onClick={(e) => { e.preventDefault(); handleDelete(category.categoryID); }}>
+                                                                <i className="ti ti-trash fs-5"></i>
+                                                            </a>
+                                                        </PermissionGate>
                                                     </div>
                                                 </td>
                                             </tr>

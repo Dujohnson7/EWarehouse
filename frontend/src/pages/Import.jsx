@@ -2,20 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TablePagination from '../components/TablePagination';
 import stockMovementService from '../services/stockMovementService';
+import authService from '../services/authService';
 
 const Import = () => {
-    // State
     const [imports, setImports] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const [loading, setLoading] = useState(true);
 
-    // Fetch Data
+    const { isInsert, isUpdate, isDelete } = authService.getUserPermissions();
+    const isAdmin = authService.isAdmin();
+    const isGeneralManager = authService.getUserRole() === 'General_Manager';
+    const userWarehouseId = authService.getUserWarehouse();
+
     useEffect(() => {
         const fetchImports = async () => {
             try {
-                // Fetch all and filter for IN
                 const data = await stockMovementService.getAllMovements();
                 const importsOnly = data.filter(m => m.movementType === 'IN');
                 setImports(importsOnly);
@@ -28,8 +31,14 @@ const Import = () => {
         fetchImports();
     }, []);
 
-    // Logic
     const filteredImports = imports.filter(imp => {
+        // Warehouse Filtering
+        if (!isAdmin && !isGeneralManager && userWarehouseId) {
+            if (imp.warehouseID !== parseInt(userWarehouseId)) {
+                return false;
+            }
+        }
+
         const productName = imp.productName || imp.product?.productName || '';
         const id = imp.movementID.toString();
 
@@ -44,6 +53,21 @@ const Import = () => {
     const currentItems = filteredImports.slice(indexOfFirstItem, indexOfLastItem);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    const handleDelete = async (movementId) => {
+        if (window.confirm('Are you sure you want to delete this import record?')) {
+            try {
+                await stockMovementService.deleteStockIn(movementId);
+                const data = await stockMovementService.getAllMovements();
+                const importsOnly = data.filter(m => m.movementType === 'IN');
+                setImports(importsOnly);
+                alert('Import deleted successfully');
+            } catch (error) {
+                console.error("Failed to delete import", error);
+                alert('Failed to delete import');
+            }
+        }
+    };
 
     return (
         <div className="card">
@@ -67,9 +91,11 @@ const Import = () => {
                                 </form>
                             </div>
                             <div className="col-md-3 col-xl-5 text-end d-flex justify-content-md-end justify-content-center mt-3 mt-md-0 ms-auto">
-                                <Link to="/import/add" className="btn btn-primary d-flex align-items-center">
-                                    <i className="ti ti-plus text-white me-1 fs-5"></i> Add Import
-                                </Link>
+                                {isInsert && (
+                                    <Link to="/import/add" className="btn btn-primary d-flex align-items-center">
+                                        <i className="ti ti-plus text-white me-1 fs-5"></i> Add Import
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -100,9 +126,16 @@ const Import = () => {
                                                 <td><span className="usr-import-date">{new Date(imp.createdAt).toLocaleDateString()}</span></td>
                                                 <td>
                                                     <div className="action-btn">
-                                                        <Link to={`/import/edit/${imp.movementID}`} className="text-primary edit">
-                                                            <i className="ti ti-edit fs-5"></i>
-                                                        </Link>
+                                                        {isUpdate && (
+                                                            <Link to={`/import/edit/${imp.movementID}`} className="text-primary edit me-2">
+                                                                <i className="ti ti-edit fs-5"></i>
+                                                            </Link>
+                                                        )}
+                                                        {isDelete && (
+                                                            <button onClick={() => handleDelete(imp.movementID)} className="btn btn-link p-0 text-danger delete ms-2 border-0 bg-transparent">
+                                                                <i className="ti ti-trash fs-5"></i>
+                                                            </button>
+                                                        )}
                                                     </div>
                                                 </td>
                                             </tr>

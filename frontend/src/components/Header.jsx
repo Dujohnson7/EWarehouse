@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import stockStatusService from '../services/stockStatusService';
+import authService from '../services/authService';
 import productService from '../services/productService';
 import warehouseService from '../services/warehouseService';
 import userService from '../services/userService';
@@ -12,7 +14,54 @@ const Header = ({ onSidebarToggle }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [notifications, setNotifications] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchNotifications = async () => {
+            try {
+                const stockData = await stockStatusService.getAllStockStatuses();
+
+                // Warehouse Filtering
+                const isAdmin = authService.isAdmin();
+                const isGeneralManager = authService.getUserRole() === 'General_Manager';
+                const userWarehouseId = authService.getUserWarehouse();
+
+                let filteredStock = stockData;
+                if (!isAdmin && !isGeneralManager && userWarehouseId) {
+                    filteredStock = stockData.filter(item => item.warehouseID === parseInt(userWarehouseId));
+                }
+
+                const alerts = filteredStock.filter(item => item.quantity < 10 || item.quantity === 0)
+                    .map(item => ({
+                        id: item.stockStatusID,
+                        productName: item.product?.productName || 'Unknown Product',
+                        type: item.quantity === 0 ? 'Out of Stock' : 'Low Stock',
+                        quantity: item.quantity,
+                        color: item.quantity === 0 ? 'danger' : 'warning',
+                        icon: item.quantity === 0 ? 'solar:danger-triangle-line-duotone' : 'solar:box-minimalistic-line-duotone',
+                        time: 'Just now'
+                    }))
+                    .slice(0, 5);
+
+                setNotifications(alerts);
+            } catch (error) {
+                console.error("Failed to fetch notifications", error);
+            }
+        };
+
+        fetchNotifications();
+
+        const interval = setInterval(fetchNotifications, 60000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const handleLogout = (e) => {
+        e.preventDefault();
+        authService.logout();
+        setIsProfileOpen(false);
+        navigate('/auth/login');
+    };
 
     const toggleNotification = (e) => {
         e.preventDefault();
@@ -26,7 +75,6 @@ const Header = ({ onSidebarToggle }) => {
         setIsNotificationOpen(false);
     };
 
-    // Keyboard shortcut: Ctrl+K
     useEffect(() => {
         const handleKeyDown = (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -65,25 +113,25 @@ const Header = ({ onSidebarToggle }) => {
                 const results = [];
                 const term = searchTerm.toLowerCase();
 
-                // Search products
+
                 products.filter(p => p.productName?.toLowerCase().includes(term) || p.sku?.toLowerCase().includes(term))
                     .slice(0, 3).forEach(p => {
                         results.push({ type: 'Product', name: p.productName, subtitle: p.sku, link: `/products` });
                     });
 
-                // Search warehouses
+
                 warehouses.filter(w => w.name?.toLowerCase().includes(term))
                     .slice(0, 3).forEach(w => {
                         results.push({ type: 'Warehouse', name: w.name, subtitle: w.address, link: `/warehouses` });
                     });
 
-                // Search users
+
                 users.filter(u => u.fullName?.toLowerCase().includes(term) || u.email?.toLowerCase().includes(term))
                     .slice(0, 3).forEach(u => {
                         results.push({ type: 'User', name: u.fullName, subtitle: u.email, link: `/users` });
                     });
 
-                // Search bins
+
                 bins.filter(b => b.binCode?.toLowerCase().includes(term))
                     .slice(0, 3).forEach(b => {
                         results.push({ type: 'Bin', name: b.binCode, subtitle: b.zone?.zoneName, link: `/bins` });
@@ -165,7 +213,7 @@ const Header = ({ onSidebarToggle }) => {
                                     <div className="list-group list-group-flush">
                                         {searchResults.map((result, index) => (
                                             <a
-                                                key={index}
+                                                key={`${result.type}-${index}`}
                                                 href="#"
                                                 className="list-group-item list-group-item-action"
                                                 onClick={(e) => { e.preventDefault(); handleResultClick(result.link); }}
@@ -199,7 +247,7 @@ const Header = ({ onSidebarToggle }) => {
                                     aria-expanded={isNotificationOpen}
                                 >
                                     <iconify-icon icon="solar:bell-linear" className="fs-6"></iconify-icon>
-                                    <div className="notification bg-primary rounded-circle"></div>
+                                    {notifications.length > 0 && <div className="notification bg-primary rounded-circle"></div>}
                                 </a>
                                 <div
                                     className={`dropdown-menu dropdown-menu-end dropdown-menu-animate-up ${isNotificationOpen ? 'show' : ''}`}
@@ -211,46 +259,27 @@ const Header = ({ onSidebarToggle }) => {
                                             <h5 className="mb-0 fs-5 fw-semibold">Notifications</h5>
                                         </div>
                                         <div className="message-list" style={{ maxHeight: '300px', overflowY: 'auto' }}>
-                                            <a href="#" className="dropdown-item py-3 border-bottom d-flex align-items-center ">
-                                                <div className="round-40 rounded-circle text-white d-flex align-items-center justify-content-center bg-danger">
-                                                    <iconify-icon icon="solar:danger-triangle-line-duotone" className="fs-6"></iconify-icon>
+                                            {notifications.length > 0 ? (
+                                                notifications.map((note, idx) => (
+                                                    <a key={`${note.id}-${idx}`} href="#" onClick={(e) => e.preventDefault()} className="dropdown-item py-3 border-bottom d-flex align-items-center ">
+                                                        <div className={`round-40 rounded-circle text-white d-flex align-items-center justify-content-center bg-${note.color}`}>
+                                                            <iconify-icon icon={note.icon} className="fs-6"></iconify-icon>
+                                                        </div>
+                                                        <div className="w-100 ps-3">
+                                                            <div className="d-flex align-items-center justify-content-between">
+                                                                <h6 className="mb-0 fw-semibold">{note.productName}</h6>
+                                                                <span className="fs-2 text-muted text-truncate d-block">{note.type}</span>
+                                                            </div>
+                                                            <span className="fs-2 text-muted d-block">{note.quantity} left</span>
+                                                        </div>
+                                                    </a>
+                                                ))
+                                            ) : (
+                                                <div className="text-center py-3">
+                                                    <span className="text-muted">No new notifications</span>
                                                 </div>
-                                                <div className="w-100 ps-3">
-                                                    <div className="d-flex align-items-center justify-content-between">
-                                                        <h6 className="mb-0 fw-semibold">Product B</h6>
-                                                        <span className="fs-2 text-muted text-truncate d-block">Out of Stock</span>
-                                                    </div>
-                                                    <span className="fs-2 text-muted d-block">Just now</span>
-                                                </div>
-                                            </a>
-                                            <a href="#" className="dropdown-item py-3 border-bottom d-flex align-items-center ">
-                                                <div className="round-40 rounded-circle text-white d-flex align-items-center justify-content-center bg-warning">
-                                                    <iconify-icon icon="solar:box-minimalistic-line-duotone" className="fs-6"></iconify-icon>
-                                                </div>
-                                                <div className="w-100 ps-3">
-                                                    <div className="d-flex align-items-center justify-content-between">
-                                                        <h6 className="mb-0 fw-semibold">Product A</h6>
-                                                        <span className="fs-2 text-muted text-truncate d-block">Stock below 20</span>
-                                                    </div>
-                                                    <span className="fs-2 text-muted d-block">10 mins ago</span>
-                                                </div>
-                                            </a>
-                                            <a href="#" className="dropdown-item py-3 border-bottom d-flex align-items-center ">
-                                                <div className="round-40 rounded-circle text-white d-flex align-items-center justify-content-center bg-secondary">
-                                                    <iconify-icon icon="solar:map-point-wave-line-duotone" className="fs-6"></iconify-icon>
-                                                </div>
-                                                <div className="w-100 ps-3">
-                                                    <div className="d-flex align-items-center justify-content-between">
-                                                        <h6 className="mb-0 fw-semibold">Product C</h6>
-                                                        <span className="fs-2 text-muted text-truncate d-block">No Location</span>
-                                                    </div>
-                                                    <span className="fs-2 text-muted d-block">1 hour ago</span>
-                                                </div>
-                                            </a>
+                                            )}
                                         </div>
-                                        <Link to="/alerts" className="dropdown-item text-center text-primary py-3" onClick={() => setIsNotificationOpen(false)}>
-                                            Check all notifications
-                                        </Link>
                                     </div>
                                 </div>
                             </li>
@@ -276,7 +305,7 @@ const Header = ({ onSidebarToggle }) => {
                                             <i className="ti ti-user fs-6"></i>
                                             <p className="mb-0 fs-3">My Profile</p>
                                         </Link>
-                                        <Link to="/auth/login" className="btn btn-outline-primary mx-3 mt-2 d-block" onClick={() => setIsProfileOpen(false)}>Logout</Link>
+                                        <Link to="/auth/login" className="btn btn-outline-primary mx-3 mt-2 d-block" onClick={handleLogout}>Logout</Link>
                                     </div>
                                 </div>
                             </li>
