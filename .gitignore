@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+**/bin/
+**/obj/
+*.suo
+*.user
+*.pdb
+
+# Node
+node_modules/
+dist/
+.env
+
+# MacOS
+.DS_Store

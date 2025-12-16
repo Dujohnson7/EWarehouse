@@ -142,8 +142,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -167,8 +171,7 @@
               "RelativeToolTip": "EWarehouse\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-14T14:02:31.215Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T14:02:31.215Z"
             },
             {
               "$type": "Document",
@@ -180,8 +183,7 @@
               "RelativeToolTip": "EWarehouse\\Controllers\\BinsController.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAIwEMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:53:17.552Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:53:17.552Z"
             },
             {
               "$type": "Document",
@@ -193,8 +195,7 @@
               "RelativeToolTip": "EWarehouse\\Services\\BinService.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAIwEoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:52:13.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:52:13.709Z"
             },
             {
               "$type": "Document",
@@ -206,8 +207,7 @@
               "RelativeToolTip": "EWarehouse\\Services\\IBinService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:51:56.981Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:51:56.981Z"
             },
             {
               "$type": "Document",
@@ -219,8 +219,7 @@
               "RelativeToolTip": "EWarehouse\\Controllers\\ZonesController.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAIwD0AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:48:35.535Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:48:35.535Z"
             },
             {
               "$type": "Document",
@@ -232,8 +231,7 @@
               "RelativeToolTip": "EWarehouse\\Services\\ZoneService.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAA1wB0AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:48:16.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:48:16.061Z"
             },
             {
               "$type": "Document",
@@ -245,8 +243,7 @@
               "RelativeToolTip": "EWarehouse\\Services\\IZoneService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:47:55.668Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:47:55.668Z"
             },
             {
               "$type": "Document",
@@ -258,8 +255,7 @@
               "RelativeToolTip": "EWarehouse\\Models\\Zone.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:47:03.813Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:47:03.813Z"
             },
             {
               "$type": "Document",
@@ -271,12 +267,7 @@
               "RelativeToolTip": "EWarehouse\\Controllers\\UsersController.cs",
               "ViewState": "AgIAAFIAAAAAAAAAAAAcwBkAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:40:17.37Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "WhenOpened": "2025-12-14T13:40:17.37Z"
             },
             {
               "$type": "Document",
@@ -288,8 +279,7 @@
               "RelativeToolTip": "EWarehouse\\Services\\IProductService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T12:18:47.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T12:18:47.709Z"
             },
             {
               "$type": "Document",
@@ -301,8 +291,7 @@
               "RelativeToolTip": "EWarehouse\\Services\\ProductService.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAowCQAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T12:17:59.588Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T12:17:59.588Z"
             },
             {
               "$type": "Document",
@@ -314,8 +303,7 @@
               "RelativeToolTip": "EWarehouse\\Services\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:39:03.79Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:39:03.79Z"
             },
             {
               "$type": "Document",
@@ -327,8 +315,7 @@
               "RelativeToolTip": "EWarehouse\\Services\\UserService.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAAAIwH8AAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:39:07.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:39:07.807Z"
             },
             {
               "$type": "Document",
@@ -340,8 +327,7 @@
               "RelativeToolTip": "EWarehouse\\DTOs\\UserDtos.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T13:38:47.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T13:38:47.322Z"
             },
             {
               "$type": "Document",
@@ -353,21 +339,19 @@
               "RelativeToolTip": "EWarehouse\\Controllers\\StockMovementsController.cs",
               "ViewState": "AgIAAH4BAAAAAAAAAAAuwJUBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T12:22:19.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T12:22:19.313Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "EWarehouse",
+              "Title": "EWarehouse.csproj",
               "DocumentMoniker": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\EWarehouse.csproj",
               "RelativeDocumentMoniker": "EWarehouse\\EWarehouse.csproj",
               "ToolTip": "E:\\AUCA\\Sem 7\\Dot net\\final Project\\E-Warehouse\\backend\\EWarehouse\\EWarehouse\\EWarehouse.csproj",
               "RelativeToolTip": "EWarehouse\\EWarehouse.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-12-14T12:22:18.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T12:22:18.663Z"
             },
             {
               "$type": "Document",
@@ -379,8 +363,7 @@
               "RelativeToolTip": "EWarehouse\\Controllers\\ProductsController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwCMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T12:19:01.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T12:19:01.039Z"
             },
             {
               "$type": "Document",
@@ -392,8 +375,7 @@
               "RelativeToolTip": "EWarehouse\\DTOs\\CommonDtos.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-12T10:16:55.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-12T10:16:55.621Z"
             },
             {
               "$type": "Document",
@@ -405,8 +387,7 @@
               "RelativeToolTip": "EWarehouse\\Models\\Product.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T12:17:45.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T12:17:45.098Z"
             },
             {
               "$type": "Document",
@@ -418,8 +399,7 @@
               "RelativeToolTip": "EWarehouse\\Services\\IWarehouseService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T07:52:36.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T07:52:36.993Z"
             },
             {
               "$type": "Document",
@@ -431,8 +411,7 @@
               "RelativeToolTip": "EWarehouse\\Models\\Alert.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T23:51:07.634Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-13T23:51:07.634Z"
             },
             {
               "$type": "Document",
@@ -444,8 +423,7 @@
               "RelativeToolTip": "EWarehouse\\Models\\Users.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAwwBAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T20:59:49.24Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-13T20:59:49.24Z"
             },
             {
               "$type": "Document",
@@ -457,8 +435,7 @@
               "RelativeToolTip": "EWarehouse\\Services\\AlertService.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAowB8AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T06:57:43.908Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T06:57:43.908Z"
             },
             {
               "$type": "Document",
@@ -530,8 +507,7 @@
               "RelativeToolTip": "EWarehouse\\Models\\StockStatus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-13T18:47:46.686Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-13T18:47:46.686Z"
             },
             {
               "$type": "Document",
