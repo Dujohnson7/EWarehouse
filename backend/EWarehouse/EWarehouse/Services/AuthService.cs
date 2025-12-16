@@ -39,7 +39,6 @@ namespace EWarehouse.Services
         {
             try
             {
-                // Use EF Core query instead of stored procedure
                 var user = await _context.Users
                     .FirstOrDefaultAsync(u => 
                         u.Email == request.Email && 
@@ -122,7 +121,6 @@ namespace EWarehouse.Services
         {
             try
             {
-                // Check if user exists
                 var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.IsActive);
                 if (user == null)
                 {
@@ -147,7 +145,6 @@ namespace EWarehouse.Services
         {
             try
             {
-                // Validate OTP
                 var isValidOtp = _otpService.ValidateOtp(request.Email, request.OtpCode);
                 if (!isValidOtp)
                 {
@@ -155,7 +152,6 @@ namespace EWarehouse.Services
                     return false;
                 }
 
-                // Get user
                 var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email && u.IsActive);
                 if (user == null)
                 {

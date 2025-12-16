@@ -108,8 +108,8 @@ BEGIN
         UPDATE StockMovements
         SET Quantity = @NewQuantity,
             ToBinID = @ToBinID,
-            UserID = @PerformingUserID, -- Update last editor
-            CreatedAt = GETDATE() -- Optionally update date
+            UserID = @PerformingUserID,
+            CreatedAt = GETDATE() 
         WHERE MovementID = @MovementID;
 
         INSERT INTO AuditLog (UserID, Action, CreatedAt)
