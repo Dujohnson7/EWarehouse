@@ -38,6 +38,7 @@ const EditUser = () => {
                         fullName: user.fullName,
                         email: user.email,
                         role: user.role,
+                        password: user.password,
                         warehouseID: user.warehouseID || '',
                         isActive: user.isActive,
                         isInsert: user.isInsert || false,
