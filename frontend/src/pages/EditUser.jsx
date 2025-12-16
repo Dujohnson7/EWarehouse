@@ -75,7 +75,7 @@ const EditUser = () => {
                 isInsert: formData.isInsert,
                 isDelete: formData.isDelete,
                 isActive: formData.isActive,
-                password: formData.password? 
+                password: formData.password
             };
 
             await userService.updateUser(id, userData);
